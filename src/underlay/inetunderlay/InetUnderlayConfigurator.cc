@@ -172,7 +172,9 @@ TransportAddress* InetUnderlayConfigurator::createNode(NodeType type, bool initi
 	//Commented by Manoj (content of the original Bittorrent code)
 	//if (!strcmp(terminalType,"BTHost"))
 	//following line is added by Manoj
-	if(!strcmp(type.terminalType.c_str(),"inet.applications.BitTorrent.BTHost") ) 
+	if(strcmp(type.terminalType.c_str(),"inet.applications.BitTorrent.BTHost")==0 ||
+	        //following part for if condition was added by Manoj for relay peers
+	        strcmp(type.terminalType.c_str(),"inet.applications.BitTorrent.BTHostRelay")==0)
 	{
 		//Commented by Manoj
 		//IPvXAddress trackerAddr = trackerAddress->getAddress();
@@ -191,8 +193,16 @@ TransportAddress* InetUnderlayConfigurator::createNode(NodeType type, bool initi
 		node->getSubmodule("trackerClient")->par("connectAddress") = addrString.c_str();
 		node->getSubmodule("trackerClient")->par("connectPort") = trackerAddress->getPort();
 
-		//node->getSubmodule("trackerClient")->par("connectAddress").setStringValue( addrString.c_str());
-		//node->getSubmodule("trackerClient")->par("connectPort") = trackerAddress->getPort();
+        //node->getSubmodule("trackerClient")->par("connectAddress").setStringValue( addrString.c_str());
+        //node->getSubmodule("trackerClient")->par("connectPort") = trackerAddress->getPort();
+
+		//following if clause is added by Manoj for relay peers
+		if(strcmp(type.terminalType.c_str(),"inet.applications.BitTorrent.BTHostRelay")==0)
+		{
+	        node->getSubmodule("relayTrackerClient")->par("connectAddress") = addrString.c_str();
+	        node->getSubmodule("relayTrackerClient")->par("connectPort") = trackerAddress->getPort();
+		}
+
 	
 		if (!localAddress.isIPv6())
 			addrString = localAddress.get4().str();
@@ -205,6 +215,13 @@ TransportAddress* InetUnderlayConfigurator::createNode(NodeType type, bool initi
 
 		//node->getSubmodule("trackerClient")->par("address").setStringValue(addrString.c_str());
 		//node->getSubmodule("trackerClient")->par("port") = address->getPort();
+
+        //following if clause is added by Manoj for relay peers
+        if(strcmp(type.terminalType.c_str(),"inet.applications.BitTorrent.BTHostRelay")==0)
+        {
+            node->getSubmodule("relayTrackerClient")->par("address") = addrString.c_str();
+            node->getSubmodule("relayTrackerClient")->par("port") = address->getPort();
+        }
 
 		
 
