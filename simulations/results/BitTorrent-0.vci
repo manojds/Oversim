@@ -1,0 +1,700 @@
+                                                                
+version 2
+run BitTorrent-0-20141217-09:46:55-8228
+attr configname BitTorrent
+attr datetime 20141217-09:46:55
+attr experiment BitTorrent
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network oversim.underlay.inetunderlay.InetUnderlayNetwork
+attr processid 8228
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+vector 218  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  tcpRcvQueueBytes  ETV
+vector 206  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "advertised window"  ETV
+vector 205  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "receive window"  ETV
+vector 208  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "sent ack"  ETV
+vector 241  InetUnderlayNetwork.overlayTerminal[0].tcp  tcpRcvQueueBytes  ETV
+vector 229  InetUnderlayNetwork.overlayTerminal[0].tcp  "advertised window"  ETV
+vector 228  InetUnderlayNetwork.overlayTerminal[0].tcp  "receive window"  ETV
+vector 231  InetUnderlayNetwork.overlayTerminal[0].tcp  "sent ack"  ETV
+vector 140  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "rcvd seq"  ETV
+vector 141  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "rcvd ack"  ETV
+vector 137  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "advertised window"  ETV
+vector 135  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "send window"  ETV
+vector 149  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  tcpRcvQueueBytes  ETV
+vector 136  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "receive window"  ETV
+vector 139  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "sent ack"  ETV
+vector 255  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "rcvd seq"  ETV
+vector 256  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "rcvd ack"  ETV
+vector 252  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "advertised window"  ETV
+vector 250  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "send window"  ETV
+vector 264  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  tcpRcvQueueBytes  ETV
+vector 251  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "receive window"  ETV
+vector 254  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "sent ack"  ETV
+vector 209  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "rcvd seq"  ETV
+vector 210  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "rcvd ack"  ETV
+vector 204  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "send window"  ETV
+vector 207  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "sent seq"  ETV
+vector 211  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "unacked bytes"  ETV
+vector 129  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.ppp[0].queue  "queue length"  ETV
+vector 142  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "unacked bytes"  ETV
+vector 143  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "rcvd dupAcks"  ETV
+vector 138  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "sent seq"  ETV
+vector 125  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.ppp[0].queue  "queue length"  ETV
+vector 232  InetUnderlayNetwork.overlayTerminal[0].tcp  "rcvd seq"  ETV
+vector 233  InetUnderlayNetwork.overlayTerminal[0].tcp  "rcvd ack"  ETV
+vector 227  InetUnderlayNetwork.overlayTerminal[0].tcp  "send window"  ETV
+vector 230  InetUnderlayNetwork.overlayTerminal[0].tcp  "sent seq"  ETV
+vector 234  InetUnderlayNetwork.overlayTerminal[0].tcp  "unacked bytes"  ETV
+vector 133  InetUnderlayNetwork.overlayTerminal[0].ppp[0].queue  "queue length"  ETV
+vector 222  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "measured RTT"  ETV
+vector 223  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "smoothed RTT"  ETV
+vector 224  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  RTTVAR  ETV
+vector 225  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  RTO  ETV
+vector 220  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  cwnd  ETV
+vector 212  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "rcvd dupAcks"  ETV
+vector 153  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "measured RTT"  ETV
+vector 154  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "smoothed RTT"  ETV
+vector 155  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  RTTVAR  ETV
+vector 156  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  RTO  ETV
+vector 151  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  cwnd  ETV
+vector 257  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "unacked bytes"  ETV
+vector 258  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "rcvd dupAcks"  ETV
+vector 253  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "sent seq"  ETV
+vector 131  InetUnderlayNetwork.accessRouter[4].ppp[1].queue  "queue length"  ETV
+151	5295 56 346 534 224.057829735 224.104055557 2 1072 1608 2680 3734848
+153	5351 35 346 346 224.057829735 224.057829735 1 0.046362883 0.046362883 0.046362883 0.0021495169200717
+154	5386 34 346 346 224.057829735 224.057829735 1 0.00579536 0.00579536 0.00579536 3.35861975296e-005
+155	5420 35 346 346 224.057829735 224.057829735 1 0.662045361 0.662045361 0.662045361 0.43830406002162
+156	5455 35 346 346 224.057829735 224.057829735 1 2.653976804 2.653976804 2.653976804 7.0435928761701
+135	5490 111 52 534 223.965147232 224.104055557 4 7504 7504 30016 225240064
+136	5601 139 52 352 223.965147232 224.057867335 5 7504 7504 37520 281550080
+137	5740 190 52 352 223.965147232 224.057867335 6 55993021 55993100 335958440 1.881134556788e+016
+138	5930 32 198 198 224.011466852 224.011466852 1 55991287 55991287 55991287 3.1350242199164e+015
+139	5962 159 52 352 223.965147232 224.057867335 5 55985517 55985596 279927899 1.5671925727716e+016
+140	6121 191 52 534 223.965147232 224.104055557 6 55985516 55985596 335913336 1.8806294883784e+016
+141	6312 184 52 534 223.965147232 224.104055557 6 0 55991397 279956763 1.5675157829902e+016
+142	6496 127 191 534 224.011304263 224.104055557 5 0 109 110 11882
+143	6623 100 195 534 224.011466852 224.104055557 4 0 0 0 0
+149	6723 149 52 352 223.965147232 224.057867335 6 0 0 0 0
+vector 245  InetUnderlayNetwork.overlayTerminal[0].tcp  "measured RTT"  ETV
+vector 246  InetUnderlayNetwork.overlayTerminal[0].tcp  "smoothed RTT"  ETV
+vector 247  InetUnderlayNetwork.overlayTerminal[0].tcp  RTTVAR  ETV
+vector 248  InetUnderlayNetwork.overlayTerminal[0].tcp  RTO  ETV
+vector 243  InetUnderlayNetwork.overlayTerminal[0].tcp  cwnd  ETV
+vector 235  InetUnderlayNetwork.overlayTerminal[0].tcp  "rcvd dupAcks"  ETV
+vector 310  InetUnderlayNetwork.overlayTerminal[0].tcp  tcpRcvQueueBytes  ETV
+vector 298  InetUnderlayNetwork.overlayTerminal[0].tcp  "advertised window"  ETV
+vector 297  InetUnderlayNetwork.overlayTerminal[0].tcp  "receive window"  ETV
+vector 300  InetUnderlayNetwork.overlayTerminal[0].tcp  "sent ack"  ETV
+vector 268  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "measured RTT"  ETV
+vector 269  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "smoothed RTT"  ETV
+vector 270  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  RTTVAR  ETV
+vector 271  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  RTO  ETV
+vector 266  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  cwnd  ETV
+vector 163  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "rcvd seq"  ETV
+vector 164  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "rcvd ack"  ETV
+vector 160  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "advertised window"  ETV
+vector 158  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "send window"  ETV
+vector 172  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  tcpRcvQueueBytes  ETV
+vector 159  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "receive window"  ETV
+vector 162  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "sent ack"  ETV
+vector 301  InetUnderlayNetwork.overlayTerminal[0].tcp  "rcvd seq"  ETV
+vector 302  InetUnderlayNetwork.overlayTerminal[0].tcp  "rcvd ack"  ETV
+vector 296  InetUnderlayNetwork.overlayTerminal[0].tcp  "send window"  ETV
+vector 299  InetUnderlayNetwork.overlayTerminal[0].tcp  "sent seq"  ETV
+vector 303  InetUnderlayNetwork.overlayTerminal[0].tcp  "unacked bytes"  ETV
+266	9133 55 627 807 224.15732282 224.242902168 2 1072 1608 2680 3734848
+268	9188 34 627 627 224.15732282 224.15732282 1 0.086883348 0.086883348 0.086883348 0.0075487161596891
+269	9222 34 627 627 224.15732282 224.15732282 1 0.010860418 0.010860418 0.010860418 0.00011794867913472
+270	9256 34 627 627 224.15732282 224.15732282 1 0.667110419 0.667110419 0.667110419 0.44503631113836
+271	9290 34 627 627 224.15732282 224.15732282 1 2.679302094 2.679302094 2.679302094 7.1786597109128
+250	9324 111 102 807 223.984514392 224.242902168 4 7504 7504 30016 225240064
+251	9435 138 102 633 223.984514392 224.15769882 5 7504 7504 37520 281550080
+252	9573 190 102 633 223.984514392 224.15769882 6 55993021 55993100 335958440 1.881134556788e+016
+253	9763 32 437 437 224.070439472 224.070439472 1 55996129 55996129 55996129 3.1355664629846e+015
+254	9795 158 102 633 223.984514392 224.15769882 5 55985517 55985596 279927899 1.5671925727716e+016
+255	9953 190 102 807 223.984514392 224.242902168 6 55985516 55985596 335913336 1.8806294883784e+016
+256	10143 183 102 807 223.984514392 224.242902168 6 0 55996340 279981276 1.5677902982171e+016
+257	10326 125 418 807 224.069376946 224.242902168 5 0 210 211 44101
+258	10451 98 434 807 224.070439472 224.242902168 4 0 0 0 0
+264	10549 148 102 633 223.984514392 224.15769882 6 0 0 0 0
+vector 165  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "unacked bytes"  ETV
+vector 166  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "rcvd dupAcks"  ETV
+vector 161  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "sent seq"  ETV
+vector 314  InetUnderlayNetwork.overlayTerminal[0].tcp  "measured RTT"  ETV
+vector 315  InetUnderlayNetwork.overlayTerminal[0].tcp  "smoothed RTT"  ETV
+vector 316  InetUnderlayNetwork.overlayTerminal[0].tcp  RTTVAR  ETV
+vector 317  InetUnderlayNetwork.overlayTerminal[0].tcp  RTO  ETV
+vector 312  InetUnderlayNetwork.overlayTerminal[0].tcp  cwnd  ETV
+vector 304  InetUnderlayNetwork.overlayTerminal[0].tcp  "rcvd dupAcks"  ETV
+vector 176  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "measured RTT"  ETV
+vector 177  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "smoothed RTT"  ETV
+vector 178  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  RTTVAR  ETV
+vector 179  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  RTO  ETV
+vector 174  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  cwnd  ETV
+vector 383  InetUnderlayNetwork.overlayTerminal[1].tcp  tcpRcvQueueBytes  ETV
+vector 371  InetUnderlayNetwork.overlayTerminal[1].tcp  "advertised window"  ETV
+vector 370  InetUnderlayNetwork.overlayTerminal[1].tcp  "receive window"  ETV
+vector 373  InetUnderlayNetwork.overlayTerminal[1].tcp  "sent ack"  ETV
+vector 278  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "rcvd seq"  ETV
+vector 279  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "rcvd ack"  ETV
+vector 275  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "advertised window"  ETV
+vector 273  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "send window"  ETV
+vector 287  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  tcpRcvQueueBytes  ETV
+vector 274  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "receive window"  ETV
+vector 277  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "sent ack"  ETV
+vector 374  InetUnderlayNetwork.overlayTerminal[1].tcp  "rcvd seq"  ETV
+vector 375  InetUnderlayNetwork.overlayTerminal[1].tcp  "rcvd ack"  ETV
+vector 369  InetUnderlayNetwork.overlayTerminal[1].tcp  "send window"  ETV
+vector 372  InetUnderlayNetwork.overlayTerminal[1].tcp  "sent seq"  ETV
+vector 376  InetUnderlayNetwork.overlayTerminal[1].tcp  "unacked bytes"  ETV
+vector 344  InetUnderlayNetwork.overlayTerminal[1].ppp[0].queue  "queue length"  ETV
+vector 280  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "unacked bytes"  ETV
+vector 281  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "rcvd dupAcks"  ETV
+vector 276  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "sent seq"  ETV
+vector 387  InetUnderlayNetwork.overlayTerminal[1].tcp  "measured RTT"  ETV
+vector 388  InetUnderlayNetwork.overlayTerminal[1].tcp  "smoothed RTT"  ETV
+vector 389  InetUnderlayNetwork.overlayTerminal[1].tcp  RTTVAR  ETV
+vector 390  InetUnderlayNetwork.overlayTerminal[1].tcp  RTO  ETV
+vector 385  InetUnderlayNetwork.overlayTerminal[1].tcp  cwnd  ETV
+vector 377  InetUnderlayNetwork.overlayTerminal[1].tcp  "rcvd dupAcks"  ETV
+vector 429  InetUnderlayNetwork.overlayTerminal[1].tcp  tcpRcvQueueBytes  ETV
+vector 417  InetUnderlayNetwork.overlayTerminal[1].tcp  "advertised window"  ETV
+vector 416  InetUnderlayNetwork.overlayTerminal[1].tcp  "receive window"  ETV
+vector 419  InetUnderlayNetwork.overlayTerminal[1].tcp  "sent ack"  ETV
+vector 452  InetUnderlayNetwork.overlayTerminal[1].tcp  tcpRcvQueueBytes  ETV
+vector 440  InetUnderlayNetwork.overlayTerminal[1].tcp  "advertised window"  ETV
+vector 439  InetUnderlayNetwork.overlayTerminal[1].tcp  "receive window"  ETV
+vector 442  InetUnderlayNetwork.overlayTerminal[1].tcp  "sent ack"  ETV
+vector 291  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "measured RTT"  ETV
+vector 292  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "smoothed RTT"  ETV
+vector 293  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  RTTVAR  ETV
+vector 294  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  RTO  ETV
+vector 289  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  cwnd  ETV
+vector 324  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "rcvd seq"  ETV
+vector 325  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "rcvd ack"  ETV
+vector 321  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "advertised window"  ETV
+vector 319  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "send window"  ETV
+vector 333  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  tcpRcvQueueBytes  ETV
+vector 320  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "receive window"  ETV
+vector 323  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "sent ack"  ETV
+vector 186  InetUnderlayNetwork.overlayTerminal[0].tcp  "rcvd seq"  ETV
+vector 187  InetUnderlayNetwork.overlayTerminal[0].tcp  "rcvd ack"  ETV
+vector 183  InetUnderlayNetwork.overlayTerminal[0].tcp  "advertised window"  ETV
+vector 181  InetUnderlayNetwork.overlayTerminal[0].tcp  "send window"  ETV
+vector 195  InetUnderlayNetwork.overlayTerminal[0].tcp  tcpRcvQueueBytes  ETV
+vector 182  InetUnderlayNetwork.overlayTerminal[0].tcp  "receive window"  ETV
+vector 185  InetUnderlayNetwork.overlayTerminal[0].tcp  "sent ack"  ETV
+vector 443  InetUnderlayNetwork.overlayTerminal[1].tcp  "rcvd seq"  ETV
+vector 444  InetUnderlayNetwork.overlayTerminal[1].tcp  "rcvd ack"  ETV
+vector 438  InetUnderlayNetwork.overlayTerminal[1].tcp  "send window"  ETV
+vector 441  InetUnderlayNetwork.overlayTerminal[1].tcp  "sent seq"  ETV
+vector 445  InetUnderlayNetwork.overlayTerminal[1].tcp  "unacked bytes"  ETV
+289	16722 58 1348 1536 283.123320156 283.167545904 2 1072 1608 2680 3734848
+291	16780 35 1348 1348 283.123320156 283.123320156 1 0.04464941 0.04464941 0.04464941 0.0019935698133481
+292	16815 36 1348 1348 283.123320156 283.123320156 1 0.005581176 0.005581176 0.005581176 3.1149525542976e-005
+293	16851 36 1348 1348 283.123320156 283.123320156 1 0.661831177 0.661831177 0.661831177 0.43802050684921
+294	16887 36 1348 1348 283.123320156 283.123320156 1 2.652905884 2.652905884 2.652905884 7.0379096293618
+273	16923 115 1101 1536 283.034351266 283.167545904 4 7504 7504 30016 225240064
+274	17038 145 1101 1354 283.034351266 283.123357756 5 7504 7504 37520 281550080
+275	17183 198 1101 1354 283.034351266 283.123357756 6 70760572 70760651 424563746 3.0042395736267e+016
+276	17381 33 1185 1185 283.078670746 283.078670746 1 70758588 70758588 70758588 5.0067777757537e+015
+277	17414 165 1101 1354 283.034351266 283.123357756 5 70753068 70753147 353765654 2.5030027590014e+016
+278	17579 197 1101 1536 283.034351266 283.167545904 6 70753067 70753147 424518642 3.003601290093e+016
+279	17776 190 1101 1536 283.034351266 283.167545904 6 0 70758877 353793805 2.5034011291375e+016
+280	17966 131 1178 1536 283.07850822 283.167545904 5 0 288 289 82945
+281	18097 104 1182 1536 283.078670746 283.167545904 4 0 0 0 0
+287	18201 156 1101 1354 283.034351266 283.123357756 6 0 0 0 0
+vector 326  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "unacked bytes"  ETV
+vector 327  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "rcvd dupAcks"  ETV
+vector 322  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "sent seq"  ETV
+vector 342  InetUnderlayNetwork.accessRouter[5].ppp[1].queue  "queue length"  ETV
+vector 420  InetUnderlayNetwork.overlayTerminal[1].tcp  "rcvd seq"  ETV
+vector 421  InetUnderlayNetwork.overlayTerminal[1].tcp  "rcvd ack"  ETV
+vector 415  InetUnderlayNetwork.overlayTerminal[1].tcp  "send window"  ETV
+vector 418  InetUnderlayNetwork.overlayTerminal[1].tcp  "sent seq"  ETV
+vector 422  InetUnderlayNetwork.overlayTerminal[1].tcp  "unacked bytes"  ETV
+vector 456  InetUnderlayNetwork.overlayTerminal[1].tcp  "measured RTT"  ETV
+vector 457  InetUnderlayNetwork.overlayTerminal[1].tcp  "smoothed RTT"  ETV
+vector 458  InetUnderlayNetwork.overlayTerminal[1].tcp  RTTVAR  ETV
+vector 459  InetUnderlayNetwork.overlayTerminal[1].tcp  RTO  ETV
+vector 454  InetUnderlayNetwork.overlayTerminal[1].tcp  cwnd  ETV
+vector 446  InetUnderlayNetwork.overlayTerminal[1].tcp  "rcvd dupAcks"  ETV
+vector 337  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "measured RTT"  ETV
+vector 338  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "smoothed RTT"  ETV
+vector 339  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  RTTVAR  ETV
+vector 340  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  RTO  ETV
+vector 335  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  cwnd  ETV
+vector 188  InetUnderlayNetwork.overlayTerminal[0].tcp  "unacked bytes"  ETV
+vector 189  InetUnderlayNetwork.overlayTerminal[0].tcp  "rcvd dupAcks"  ETV
+vector 184  InetUnderlayNetwork.overlayTerminal[0].tcp  "sent seq"  ETV
+vector 433  InetUnderlayNetwork.overlayTerminal[1].tcp  "measured RTT"  ETV
+vector 434  InetUnderlayNetwork.overlayTerminal[1].tcp  "smoothed RTT"  ETV
+vector 435  InetUnderlayNetwork.overlayTerminal[1].tcp  RTTVAR  ETV
+vector 436  InetUnderlayNetwork.overlayTerminal[1].tcp  RTO  ETV
+vector 431  InetUnderlayNetwork.overlayTerminal[1].tcp  cwnd  ETV
+vector 423  InetUnderlayNetwork.overlayTerminal[1].tcp  "rcvd dupAcks"  ETV
+vector 199  InetUnderlayNetwork.overlayTerminal[0].tcp  "measured RTT"  ETV
+vector 200  InetUnderlayNetwork.overlayTerminal[0].tcp  "smoothed RTT"  ETV
+vector 201  InetUnderlayNetwork.overlayTerminal[0].tcp  RTTVAR  ETV
+vector 202  InetUnderlayNetwork.overlayTerminal[0].tcp  RTO  ETV
+vector 197  InetUnderlayNetwork.overlayTerminal[0].tcp  cwnd  ETV
+vector 548  InetUnderlayNetwork.overlayTerminal[2].tcp  tcpRcvQueueBytes  ETV
+vector 536  InetUnderlayNetwork.overlayTerminal[2].tcp  "advertised window"  ETV
+vector 535  InetUnderlayNetwork.overlayTerminal[2].tcp  "receive window"  ETV
+vector 538  InetUnderlayNetwork.overlayTerminal[2].tcp  "sent ack"  ETV
+vector 397  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "rcvd seq"  ETV
+vector 398  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "rcvd ack"  ETV
+vector 394  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "advertised window"  ETV
+vector 392  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "send window"  ETV
+vector 406  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  tcpRcvQueueBytes  ETV
+vector 393  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "receive window"  ETV
+vector 396  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "sent ack"  ETV
+vector 539  InetUnderlayNetwork.overlayTerminal[2].tcp  "rcvd seq"  ETV
+vector 540  InetUnderlayNetwork.overlayTerminal[2].tcp  "rcvd ack"  ETV
+vector 534  InetUnderlayNetwork.overlayTerminal[2].tcp  "send window"  ETV
+vector 537  InetUnderlayNetwork.overlayTerminal[2].tcp  "sent seq"  ETV
+vector 541  InetUnderlayNetwork.overlayTerminal[2].tcp  "unacked bytes"  ETV
+vector 509  InetUnderlayNetwork.overlayTerminal[2].ppp[0].queue  "queue length"  ETV
+vector 399  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "unacked bytes"  ETV
+vector 400  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "rcvd dupAcks"  ETV
+vector 395  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "sent seq"  ETV
+vector 507  InetUnderlayNetwork.accessRouter[3].ppp[1].queue  "queue length"  ETV
+vector 552  InetUnderlayNetwork.overlayTerminal[2].tcp  "measured RTT"  ETV
+vector 553  InetUnderlayNetwork.overlayTerminal[2].tcp  "smoothed RTT"  ETV
+vector 554  InetUnderlayNetwork.overlayTerminal[2].tcp  RTTVAR  ETV
+vector 555  InetUnderlayNetwork.overlayTerminal[2].tcp  RTO  ETV
+vector 550  InetUnderlayNetwork.overlayTerminal[2].tcp  cwnd  ETV
+vector 542  InetUnderlayNetwork.overlayTerminal[2].tcp  "rcvd dupAcks"  ETV
+vector 594  InetUnderlayNetwork.overlayTerminal[2].tcp  tcpRcvQueueBytes  ETV
+vector 582  InetUnderlayNetwork.overlayTerminal[2].tcp  "advertised window"  ETV
+vector 581  InetUnderlayNetwork.overlayTerminal[2].tcp  "receive window"  ETV
+vector 584  InetUnderlayNetwork.overlayTerminal[2].tcp  "sent ack"  ETV
+vector 617  InetUnderlayNetwork.overlayTerminal[2].tcp  tcpRcvQueueBytes  ETV
+vector 605  InetUnderlayNetwork.overlayTerminal[2].tcp  "advertised window"  ETV
+vector 604  InetUnderlayNetwork.overlayTerminal[2].tcp  "receive window"  ETV
+vector 607  InetUnderlayNetwork.overlayTerminal[2].tcp  "sent ack"  ETV
+vector 640  InetUnderlayNetwork.overlayTerminal[2].tcp  tcpRcvQueueBytes  ETV
+vector 628  InetUnderlayNetwork.overlayTerminal[2].tcp  "advertised window"  ETV
+vector 627  InetUnderlayNetwork.overlayTerminal[2].tcp  "receive window"  ETV
+vector 630  InetUnderlayNetwork.overlayTerminal[2].tcp  "sent ack"  ETV
+vector 410  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "measured RTT"  ETV
+vector 411  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "smoothed RTT"  ETV
+vector 412  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  RTTVAR  ETV
+vector 413  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  RTO  ETV
+vector 408  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  cwnd  ETV
+vector 351  InetUnderlayNetwork.overlayTerminal[1].tcp  "rcvd seq"  ETV
+vector 352  InetUnderlayNetwork.overlayTerminal[1].tcp  "rcvd ack"  ETV
+vector 348  InetUnderlayNetwork.overlayTerminal[1].tcp  "advertised window"  ETV
+vector 346  InetUnderlayNetwork.overlayTerminal[1].tcp  "send window"  ETV
+vector 360  InetUnderlayNetwork.overlayTerminal[1].tcp  tcpRcvQueueBytes  ETV
+vector 347  InetUnderlayNetwork.overlayTerminal[1].tcp  "receive window"  ETV
+vector 350  InetUnderlayNetwork.overlayTerminal[1].tcp  "sent ack"  ETV
+vector 466  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "rcvd seq"  ETV
+vector 467  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "rcvd ack"  ETV
+vector 463  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "advertised window"  ETV
+vector 461  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "send window"  ETV
+vector 475  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  tcpRcvQueueBytes  ETV
+vector 462  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "receive window"  ETV
+vector 465  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "sent ack"  ETV
+vector 489  InetUnderlayNetwork.overlayTerminal[0].tcp  "rcvd seq"  ETV
+vector 490  InetUnderlayNetwork.overlayTerminal[0].tcp  "rcvd ack"  ETV
+vector 486  InetUnderlayNetwork.overlayTerminal[0].tcp  "advertised window"  ETV
+vector 484  InetUnderlayNetwork.overlayTerminal[0].tcp  "send window"  ETV
+vector 498  InetUnderlayNetwork.overlayTerminal[0].tcp  tcpRcvQueueBytes  ETV
+vector 485  InetUnderlayNetwork.overlayTerminal[0].tcp  "receive window"  ETV
+vector 488  InetUnderlayNetwork.overlayTerminal[0].tcp  "sent ack"  ETV
+vector 585  InetUnderlayNetwork.overlayTerminal[2].tcp  "rcvd seq"  ETV
+vector 586  InetUnderlayNetwork.overlayTerminal[2].tcp  "rcvd ack"  ETV
+vector 580  InetUnderlayNetwork.overlayTerminal[2].tcp  "send window"  ETV
+vector 583  InetUnderlayNetwork.overlayTerminal[2].tcp  "sent seq"  ETV
+vector 587  InetUnderlayNetwork.overlayTerminal[2].tcp  "unacked bytes"  ETV
+vector 631  InetUnderlayNetwork.overlayTerminal[2].tcp  "rcvd seq"  ETV
+vector 632  InetUnderlayNetwork.overlayTerminal[2].tcp  "rcvd ack"  ETV
+vector 626  InetUnderlayNetwork.overlayTerminal[2].tcp  "send window"  ETV
+vector 629  InetUnderlayNetwork.overlayTerminal[2].tcp  "sent seq"  ETV
+vector 633  InetUnderlayNetwork.overlayTerminal[2].tcp  "unacked bytes"  ETV
+vector 608  InetUnderlayNetwork.overlayTerminal[2].tcp  "rcvd seq"  ETV
+vector 609  InetUnderlayNetwork.overlayTerminal[2].tcp  "rcvd ack"  ETV
+vector 603  InetUnderlayNetwork.overlayTerminal[2].tcp  "send window"  ETV
+vector 606  InetUnderlayNetwork.overlayTerminal[2].tcp  "sent seq"  ETV
+vector 610  InetUnderlayNetwork.overlayTerminal[2].tcp  "unacked bytes"  ETV
+408	27532 58 2939 3280 440.209393375 440.296972797 2 1072 1608 2680 3734848
+410	27590 36 2939 2939 440.209393375 440.209393375 1 0.090131422 0.090131422 0.090131422 0.0081236732317421
+411	27626 36 2939 2939 440.209393375 440.209393375 1 0.011266427 0.011266427 0.011266427 0.00012693237734633
+412	27662 36 2939 2939 440.209393375 440.209393375 1 0.667516428 0.667516428 0.667516428 0.44557818164988
+413	27698 36 2939 2939 440.209393375 440.209393375 1 2.681332139 2.681332139 2.681332139 7.1895420396343
+392	27734 116 2611 3280 440.031336733 440.296972797 4 7504 7504 30016 225240064
+393	27850 145 2611 2945 440.031336733 440.209769375 5 7504 7504 37520 281550080
+394	27995 204 2611 2945 440.031336733 440.209769375 6 110004476 110004555 660027170 7.2605977523043e+016
+395	28199 34 2714 2714 440.119261953 440.119261953 1 110007835 110007835 110007835 1.2101723761387e+016
+396	28233 170 2611 2945 440.031336733 440.209769375 5 109996972 109997051 549985174 6.0496738323967e+016
+397	28403 204 2611 3280 440.031336733 440.296972797 6 109996971 109997051 659982066 7.2596054573614e+016
+398	28607 196 2611 3280 440.031336733 440.296972797 6 0 110008202 550040274 6.050886060456e+016
+399	28803 132 2707 3280 440.118199364 440.296972797 5 0 366 367 133957
+400	28935 104 2711 3280 440.119261953 440.296972797 4 0 0 0 0
+406	29039 156 2611 2945 440.031336733 440.209769375 6 0 0 0 0
+vector 353  InetUnderlayNetwork.overlayTerminal[1].tcp  "unacked bytes"  ETV
+vector 354  InetUnderlayNetwork.overlayTerminal[1].tcp  "rcvd dupAcks"  ETV
+vector 349  InetUnderlayNetwork.overlayTerminal[1].tcp  "sent seq"  ETV
+vector 468  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "unacked bytes"  ETV
+vector 469  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "rcvd dupAcks"  ETV
+vector 464  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "sent seq"  ETV
+vector 598  InetUnderlayNetwork.overlayTerminal[2].tcp  "measured RTT"  ETV
+vector 599  InetUnderlayNetwork.overlayTerminal[2].tcp  "smoothed RTT"  ETV
+vector 600  InetUnderlayNetwork.overlayTerminal[2].tcp  RTTVAR  ETV
+vector 601  InetUnderlayNetwork.overlayTerminal[2].tcp  RTO  ETV
+vector 596  InetUnderlayNetwork.overlayTerminal[2].tcp  cwnd  ETV
+vector 588  InetUnderlayNetwork.overlayTerminal[2].tcp  "rcvd dupAcks"  ETV
+vector 644  InetUnderlayNetwork.overlayTerminal[2].tcp  "measured RTT"  ETV
+vector 645  InetUnderlayNetwork.overlayTerminal[2].tcp  "smoothed RTT"  ETV
+vector 646  InetUnderlayNetwork.overlayTerminal[2].tcp  RTTVAR  ETV
+vector 647  InetUnderlayNetwork.overlayTerminal[2].tcp  RTO  ETV
+vector 642  InetUnderlayNetwork.overlayTerminal[2].tcp  cwnd  ETV
+vector 634  InetUnderlayNetwork.overlayTerminal[2].tcp  "rcvd dupAcks"  ETV
+vector 491  InetUnderlayNetwork.overlayTerminal[0].tcp  "unacked bytes"  ETV
+vector 492  InetUnderlayNetwork.overlayTerminal[0].tcp  "rcvd dupAcks"  ETV
+vector 487  InetUnderlayNetwork.overlayTerminal[0].tcp  "sent seq"  ETV
+vector 364  InetUnderlayNetwork.overlayTerminal[1].tcp  "measured RTT"  ETV
+vector 365  InetUnderlayNetwork.overlayTerminal[1].tcp  "smoothed RTT"  ETV
+vector 366  InetUnderlayNetwork.overlayTerminal[1].tcp  RTTVAR  ETV
+vector 367  InetUnderlayNetwork.overlayTerminal[1].tcp  RTO  ETV
+vector 362  InetUnderlayNetwork.overlayTerminal[1].tcp  cwnd  ETV
+vector 479  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "measured RTT"  ETV
+vector 480  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "smoothed RTT"  ETV
+vector 481  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  RTTVAR  ETV
+vector 482  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  RTO  ETV
+vector 477  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  cwnd  ETV
+vector 621  InetUnderlayNetwork.overlayTerminal[2].tcp  "measured RTT"  ETV
+vector 622  InetUnderlayNetwork.overlayTerminal[2].tcp  "smoothed RTT"  ETV
+vector 623  InetUnderlayNetwork.overlayTerminal[2].tcp  RTTVAR  ETV
+vector 624  InetUnderlayNetwork.overlayTerminal[2].tcp  RTO  ETV
+vector 619  InetUnderlayNetwork.overlayTerminal[2].tcp  cwnd  ETV
+vector 611  InetUnderlayNetwork.overlayTerminal[2].tcp  "rcvd dupAcks"  ETV
+vector 502  InetUnderlayNetwork.overlayTerminal[0].tcp  "measured RTT"  ETV
+vector 503  InetUnderlayNetwork.overlayTerminal[0].tcp  "smoothed RTT"  ETV
+vector 504  InetUnderlayNetwork.overlayTerminal[0].tcp  RTTVAR  ETV
+vector 505  InetUnderlayNetwork.overlayTerminal[0].tcp  RTO  ETV
+vector 500  InetUnderlayNetwork.overlayTerminal[0].tcp  cwnd  ETV
+220	32430 56 273 473 224.034542163 224.080942646 2 1072 1608 2680 3734848
+222	32486 35 273 273 224.034542163 224.034542163 1 0.046313211 0.046313211 0.046313211 0.0021449135131305
+223	32521 35 273 273 224.034542163 224.034542163 1 0.005789151 0.005789151 0.005789151 3.3514269300801e-005
+224	32556 35 273 273 224.034542163 224.034542163 1 0.662039152 0.662039152 0.662039152 0.43829583878088
+225	32591 35 273 273 224.034542163 224.034542163 1 2.653945759 2.653945759 2.653945759 7.0434280917141
+204	32626 84 110 473 223.988228952 224.080942646 3 7504 7504 22512 168930048
+205	32710 167 14 476 223.942065512 224.080980246 6 7504 7504 45024 337860096
+206	32877 219 14 476 223.942065512 224.080980246 7 7504 55998901 336000578 1.8815224352323e+016
+207	33096 32 114 114 223.988228952 223.988228952 1 55985517 55985517 55985517 3.1343781137573e+015
+208	33128 184 14 476 223.942065512 224.080980246 6 0 55991397 279956763 1.5675157829902e+016
+209	33312 160 110 476 223.988228952 224.080980246 5 55991286 55991396 279956652 1.5675145399824e+016
+210	33472 160 110 476 223.988228952 224.080980246 5 55985517 55985596 279927899 1.5671925727716e+016
+211	33632 101 114 473 223.988228952 224.080942646 4 0 78 79 6085
+212	33733 100 273 476 224.034542163 224.080980246 4 0 0 0 0
+218	33833 174 14 476 223.942065512 224.080980246 7 0 0 0 0
+243	34007 56 538 713 224.112853146 224.200112494 2 1072 1608 2680 3734848
+245	34063 35 538 538 224.112853146 224.112853146 1 0.085889874 0.085889874 0.085889874 0.0073770704557359
+246	34098 35 538 538 224.112853146 224.112853146 1 0.010736234 0.010736234 0.010736234 0.00011526672050276
+247	34133 35 538 538 224.112853146 224.112853146 1 0.666986235 0.666986235 0.666986235 0.44487063767948
+248	34168 35 538 538 224.112853146 224.112853146 1 2.678681174 2.678681174 2.678681174 7.175332831942
+227	34203 84 258 713 224.026963272 224.200112494 3 7504 7504 22512 168930048
+228	34287 167 15 716 223.942065512 224.200488494 6 7504 7504 45024 337860096
+229	34454 219 15 716 223.942065512 224.200488494 7 7504 56003844 336029933 1.881851218822e+016
+230	34673 32 262 262 224.026963272 224.026963272 1 55985517 55985517 55985517 3.1343781137573e+015
+231	34705 184 15 716 223.942065512 224.200488494 6 0 55996340 279981276 1.5677902982171e+016
+232	34889 160 258 716 224.026963272 224.200488494 5 55996128 55996339 279981064 1.5677879239768e+016
+233	35049 160 258 716 224.026963272 224.200488494 5 55985517 55985596 279927899 1.5671925727716e+016
+234	35209 101 262 713 224.026963272 224.200112494 4 0 78 79 6085
+235	35310 100 538 716 224.112853146 224.200488494 4 0 0 0 0
+241	35410 174 15 716 223.942065512 224.200488494 7 0 0 0 0
+385	35584 56 1233 1442 283.10074602 283.14543303 2 1072 1608 2680 3734848
+387	35640 35 1233 1233 283.10074602 283.10074602 1 0.044313074 0.044313074 0.044313074 0.0019636485273295
+388	35675 35 1233 1233 283.10074602 283.10074602 1 0.005539134 0.005539134 0.005539134 3.0682005469956e-005
+389	35710 35 1233 1233 283.10074602 283.10074602 1 0.661789135 0.661789135 0.661789135 0.43796485920405
+390	35745 35 1233 1233 283.10074602 283.10074602 1 2.652695674 2.652695674 2.652695674 7.0367943388583
+369	35780 85 1127 1442 283.056432946 283.14543303 3 7504 7504 22512 168930048
+370	35865 173 1075 1445 283.012269586 283.14547063 6 7504 7504 45024 337860096
+371	36038 226 1075 1445 283.012269586 283.14547063 7 7504 70766381 424604921 3.0047161143613e+016
+372	36264 33 1131 1131 283.056432946 283.056432946 1 70753068 70753068 70753068 5.0059966314126e+015
+373	36297 190 1075 1445 283.012269586 283.14547063 6 0 70758877 353793805 2.5034011291375e+016
+374	36487 162 1127 1445 283.056432946 283.14547063 5 70758587 70758876 353793515 2.5033970251311e+016
+375	36649 162 1127 1445 283.056432946 283.14547063 5 70753068 70753147 353765654 2.5030027590014e+016
+376	36811 103 1131 1442 283.056432946 283.14543303 4 0 78 79 6085
+377	36914 101 1233 1445 283.10074602 283.14547063 4 0 0 0 0
+383	37015 181 1075 1445 283.012269586 283.14547063 7 0 0 0 0
+vector 732  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  tcpRcvQueueBytes  ETV
+vector 720  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "advertised window"  ETV
+vector 719  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "receive window"  ETV
+vector 722  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "sent ack"  ETV
+vector 562  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "rcvd seq"  ETV
+vector 563  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "rcvd ack"  ETV
+vector 559  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "advertised window"  ETV
+vector 557  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "send window"  ETV
+vector 571  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  tcpRcvQueueBytes  ETV
+vector 558  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "receive window"  ETV
+vector 561  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "sent ack"  ETV
+vector 723  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "rcvd seq"  ETV
+vector 724  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "rcvd ack"  ETV
+vector 718  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "send window"  ETV
+vector 721  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "sent seq"  ETV
+vector 725  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "unacked bytes"  ETV
+vector 564  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "unacked bytes"  ETV
+vector 565  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "rcvd dupAcks"  ETV
+vector 560  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "sent seq"  ETV
+vector 778  InetUnderlayNetwork.overlayTerminal[0].tcp  tcpRcvQueueBytes  ETV
+vector 766  InetUnderlayNetwork.overlayTerminal[0].tcp  "advertised window"  ETV
+vector 765  InetUnderlayNetwork.overlayTerminal[0].tcp  "receive window"  ETV
+vector 768  InetUnderlayNetwork.overlayTerminal[0].tcp  "sent ack"  ETV
+vector 736  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "measured RTT"  ETV
+vector 737  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "smoothed RTT"  ETV
+vector 738  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  RTTVAR  ETV
+vector 739  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  RTO  ETV
+vector 734  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  cwnd  ETV
+vector 726  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "rcvd dupAcks"  ETV
+vector 575  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "measured RTT"  ETV
+vector 576  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "smoothed RTT"  ETV
+vector 577  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  RTTVAR  ETV
+vector 578  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  RTO  ETV
+vector 573  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  cwnd  ETV
+vector 746  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "rcvd seq"  ETV
+vector 747  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "rcvd ack"  ETV
+vector 743  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "advertised window"  ETV
+vector 741  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "send window"  ETV
+vector 755  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  tcpRcvQueueBytes  ETV
+vector 742  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "receive window"  ETV
+vector 745  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "sent ack"  ETV
+573	41023 58 5428 6138 524.150887199 524.197113021 2 1072 1608 2680 3734848
+575	41081 36 5428 5428 524.150887199 524.150887199 1 0.046710605 0.046710605 0.046710605 0.002181880619466
+576	41117 36 5428 5428 524.150887199 524.150887199 1 0.005838825 0.005838825 0.005838825 3.4091877380625e-005
+577	41153 36 5428 5428 524.150887199 524.150887199 1 0.662088826 0.662088826 0.662088826 0.43836161351406
+578	41189 36 5428 5428 524.150887199 524.150887199 1 2.654194129 2.654194129 2.654194129 7.0447464744181
+557	41225 116 5025 6138 524.057836144 524.197113021 4 7504 7504 30016 225240064
+558	41341 145 5025 5434 524.057836144 524.150924799 5 7504 7504 37520 281550080
+559	41486 204 5025 5434 524.057836144 524.150924799 6 131016193 131016285 786097524 1.0299155287317e+017
+560	41690 34 5127 5127 524.104176594 524.104176594 1 131014460 131014460 131014460 1.7164788729092e+016
+561	41724 170 5025 5434 524.057836144 524.150924799 5 131008689 131008781 655043811 8.5816478865887e+016
+562	41894 204 5025 6138 524.057836144 524.197113021 6 131008688 131008781 786052407 1.0297973109176e+017
+563	42098 196 5025 6138 524.057836144 524.197113021 6 0 131014787 655073279 8.582420017209e+016
+564	42294 132 5120 6138 524.103993175 524.197113021 5 0 326 327 106277
+565	42426 104 5124 6138 524.104176594 524.197113021 4 0 0 0 0
+571	42530 156 5025 5434 524.057836144 524.150924799 6 0 0 0 0
+vector 769  InetUnderlayNetwork.overlayTerminal[0].tcp  "rcvd seq"  ETV
+vector 770  InetUnderlayNetwork.overlayTerminal[0].tcp  "rcvd ack"  ETV
+vector 764  InetUnderlayNetwork.overlayTerminal[0].tcp  "send window"  ETV
+vector 767  InetUnderlayNetwork.overlayTerminal[0].tcp  "sent seq"  ETV
+vector 771  InetUnderlayNetwork.overlayTerminal[0].tcp  "unacked bytes"  ETV
+vector 748  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "unacked bytes"  ETV
+vector 749  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "rcvd dupAcks"  ETV
+vector 744  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "sent seq"  ETV
+vector 782  InetUnderlayNetwork.overlayTerminal[0].tcp  "measured RTT"  ETV
+vector 783  InetUnderlayNetwork.overlayTerminal[0].tcp  "smoothed RTT"  ETV
+vector 784  InetUnderlayNetwork.overlayTerminal[0].tcp  RTTVAR  ETV
+vector 785  InetUnderlayNetwork.overlayTerminal[0].tcp  RTO  ETV
+vector 780  InetUnderlayNetwork.overlayTerminal[0].tcp  cwnd  ETV
+vector 772  InetUnderlayNetwork.overlayTerminal[0].tcp  "rcvd dupAcks"  ETV
+vector 759  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "measured RTT"  ETV
+vector 760  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "smoothed RTT"  ETV
+vector 761  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  RTTVAR  ETV
+vector 762  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  RTO  ETV
+vector 757  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  cwnd  ETV
+757	44220 59 9094 11321 524.332224874 524.417804222 2 1072 1608 2680 3734848
+759	44279 36 9094 9094 524.332224874 524.332224874 1 0.087995348 0.087995348 0.087995348 0.0077431812696411
+760	44315 36 9094 9094 524.332224874 524.332224874 1 0.010999418 0.010999418 0.010999418 0.00012098719633872
+761	44351 36 9094 9094 524.332224874 524.332224874 1 0.667249419 0.667249419 0.667249419 0.44522178715584
+762	44387 36 9094 9094 524.332224874 524.332224874 1 2.679997094 2.679997094 2.679997094 7.1823844238484
+741	44423 116 5501 11321 524.158190026 524.417804222 4 7504 7504 30016 225240064
+742	44539 145 5501 9118 524.158190026 524.332600874 5 7504 7504 37520 281550080
+743	44684 204 5501 9118 524.158190026 524.332600874 6 131036232 131036324 786217758 1.030230604991e+017
+744	44888 34 7284 7284 524.244229526 524.244229526 1 131039548 131039548 131039548 1.7171363140044e+016
+745	44922 170 5501 9118 524.158190026 524.332600874 5 131028728 131028820 655144006 8.5842733719552e+016
+746	45092 204 5501 11321 524.158190026 524.417804222 6 131028727 131028820 786172641 1.030112369095e+017
+747	45296 196 5501 11321 524.158190026 524.417804222 6 0 131039898 655198788 8.585709035948e+016
+748	45492 132 7277 11321 524.24305258 524.417804222 5 0 349 350 121802
+749	45624 105 7281 11321 524.244229526 524.417804222 4 0 0 0 0
+755	45729 156 5501 9118 524.158190026 524.332600874 6 0 0 0 0
+vector 127  InetUnderlayNetwork.accessRouter[7].ppp[1].queue  "queue length"  ETV
+vector 16  InetUnderlayNetwork.backboneRouter[1].ppp[0].queue  "queue length"  ETV
+vector 8  InetUnderlayNetwork.backboneRouter[0].ppp[4].queue  "queue length"  ETV
+335	46135 61864 1810 288047 283.217043385 530.90605186 1964 1072 72920 132033434 9089484955866
+337	107999 5459 1810 286728 283.217043385 530.8534657 146 0.046157031 0.047568891 6.86421304 0.32272595859542
+338	113458 5450 1810 286728 283.217043385 530.8534657 146 0.005787148 0.047094256 6.534627469 0.29906230913065
+339	118908 5436 1810 286728 283.217043385 530.8534657 146 4.698e-006 0.662037149 5.62848719 1.981708559538
+340	124344 4098 1810 286728 283.217043385 530.8534657 146 1 2.653935744 152.415533525 165.94119802181
+319	128442 59978 1366 288047 283.124442602 530.90605186 1966 7504 7504 14752864 110705491456
+320	188420 62104 1366 286913 283.124442602 530.859863638 2037 7504 7504 15285648 114703502592
+321	250524 70285 1366 286913 283.124442602 530.859863638 2038 70782816 70783495 144256210465 1.0210919655468e+019
+322	320809 67714 1549 285521 283.170746198 530.813317336 1963 70781111 71830153 139970421432 9.9806797510216e+018
+323	388523 70252 1366 286913 283.124442602 530.859863638 2037 70775312 70775991 144170142001 1.0203745628233e+019
+324	458775 70312 1366 288047 283.124442602 530.90605186 2038 70775311 70775991 144240924469 1.0208755785963e+019
+325	529087 70305 1366 288047 283.124442602 530.90605186 2038 0 71830354 145242525678 1.03562969997e+019
+326	599392 119425 1540 288047 283.170599633 530.90605186 3916 0 7504 28114560 203375946884
+327	718817 55994 1545 288047 283.170746198 530.90605186 2036 0 0 0 0
+333	774811 57931 1366 286913 283.124442602 530.859863638 2108 0 0 0 0
+197	832742 264 1941 289437 283.315353374 530.965462643 9 1072 1608 10720 13215616
+199	833006 289 1941 148913 283.315353374 527.712478298 8 0.084862554 0.087257509 0.685064854 0.058670314123148
+200	833295 288 1941 148913 283.315353374 527.712478298 8 0.010725232 0.05633621 0.290711369 0.012337399037345
+201	833583 287 1941 148913 283.315353374 527.712478298 8 0.291558134 0.666975233 3.659782783 1.795155039134
+202	833870 287 1941 148913 283.315353374 527.712478298 8 1.222568746 2.678626164 14.929842501 29.681626133307
+181	834157 322 1434 289437 283.143768962 530.965462643 11 7504 7504 82544 619410176
+182	834479 592 1434 287452 283.143768962 530.879164401 20 7504 7504 150080 1126200320
+183	835071 705 1434 287452 283.143768962 530.879164401 21 70782816 70782930 1486440829 1.0521458752946e+017
+184	835776 267 1852 144990 283.229551516 527.625220789 8 70785943 70786040 566288120 4.0085279356648e+016
+185	836043 672 1434 287452 283.143768962 530.879164401 20 70775312 70775426 1415507933 1.0018313541931e+017
+186	836715 703 1434 289437 283.143768962 530.965462643 21 70775311 70775426 1486283130 1.0519226392967e+017
+187	837418 696 1434 289437 283.143768962 530.965462643 21 0 70786048 1415720445 1.0021321891957e+017
+188	838114 503 1837 289437 283.228631516 530.965462643 19 0 68 105 4815
+189	838617 504 1848 289437 283.229551516 530.965462643 19 0 0 0 0
+195	839121 771 1434 287452 283.143768962 530.879164401 29 0 0 0 0
+596	839892 706 3502 289475 440.341769073 530.967863072 23 1072 11792 137216 1092299392
+598	840598 568 3502 284686 440.341769073 530.793334049 16 0.086871434 0.131344 1.920981315 0.23602844415176
+599	841166 599 3502 284686 440.341769073 530.793334049 16 0.010975248 0.109964763 1.171090171 0.10219237768268
+600	841765 602 3502 284686 440.341769073 530.793334049 16 0.126117844 0.667225249 5.269593043 2.1606518549282
+601	842367 540 3502 284686 440.341769073 530.793334049 16 1 2.679876244 23.536519743 39.293318712034
+580	842907 731 3091 289475 440.253967086 530.967863072 24 7504 7504 180096 1351440384
+581	843638 16110 2791 287496 440.165979664 530.88065965 522 7504 7504 3917088 29393828352
+582	859748 18749 2791 287496 440.165979664 530.88065965 523 7504 110322453 57518362148 6.3378597439558e+018
+583	878497 781 3095 281137 440.253967086 530.706069009 22 110041495 110041729 2420916036 2.6640156606199e+017
+584	879278 18712 2791 287496 440.165979664 530.88065965 522 0 110314949 57404385010 6.3248849749457e+018
+585	897990 18687 3091 289475 440.253967086 530.967863072 521 110052545 110314949 57404224446 6.3248495874259e+018
+586	916677 18687 3091 289475 440.253967086 530.967863072 521 110041495 110041737 57331714461 6.3088780864455e+018
+587	935364 1276 3095 289475 440.253967086 530.967863072 46 0 68 508 16330
+588	936640 14493 3502 289475 440.341769073 530.967863072 520 0 0 0 0
+594	951133 28377 2791 287496 440.165979664 530.88065965 1018 0 0 0 0
+477	979510 46202 3665 386792 440.387398784 535.648218809 1473 1072 71324 96668852 6537185765872
+479	1025712 3963 3665 383119 440.387398784 535.460951387 109 0.087029834 0.140821764 11.4204317 1.2333196672522
+480	1029675 4056 3665 383119 440.387398784 535.460951387 109 0.010968427 0.130421248 10.715775214 1.1175147462109
+481	1033731 4060 3665 383119 440.387398784 535.460951387 109 0.00087911 0.667218428 6.626583195 2.1402225296333
+482	1037791 3069 3665 383119 440.387398784 535.460951387 109 1 2.679842139 116.103205578 131.12442758788
+461	1040860 44806 2965 386792 440.210996584 535.648218809 1475 7504 7504 11068400 83057273600
+462	1085666 46402 2965 385231 440.210996584 535.561015387 1528 7504 7504 11466112 86041704448
+463	1132068 54076 2965 385231 440.210996584 535.561015387 1529 110048999 110049526 168265422766 1.8517496729013e+019
+464	1186144 52053 3315 382735 440.299651362 535.446583387 1472 110052750 110839680 162575708459 1.7955824307554e+019
+465	1238197 54042 2965 385231 440.210996584 535.561015387 1528 110041495 110042022 168143907655 1.8502862357024e+019
+466	1292239 54100 2965 386792 440.210996584 535.648218809 1529 110041494 110042022 168253954406 1.8514972644406e+019
+467	1346339 54092 2965 386792 440.210996584 535.648218809 1529 0 110839697 168758014469 1.863834383168e+019
+468	1400431 89088 3306 386792 440.298676797 535.648218809 2934 0 7504 21022304 151975987748
+469	1489519 41816 3311 386792 440.299651362 535.648218809 1527 0 0 0 0
+475	1531335 43277 2965 385231 440.210996584 535.561015387 1581 0 0 0 0
+500	1574612 5076 3792 401519 440.488956567 536.555254184 160 1072 66052 6140792 315398187840
+502	1579688 781 3792 400222 440.488956567 536.449628675 21 0.127584234 0.173844565 2.969521545 0.42340178007241
+503	1580469 784 3792 400222 440.488956567 536.449628675 21 0.016121048 0.132321055 2.043274083 0.22484422436547
+504	1581253 782 3792 400222 440.488956567 536.449628675 21 0.069785881 0.672371049 5.820067418 2.2800072064953
+505	1582035 683 3792 400222 440.488956567 536.449628675 21 1 2.705605244 28.995970992 45.917389147919
+484	1582718 5029 3069 401519 440.230955784 536.555254184 163 7504 7504 1223152 9178532608
+485	1587747 5584 3069 399710 440.230955784 536.416699166 181 7504 7504 1358224 10192112896
+486	1593331 6523 3069 399710 440.230955784 536.416699166 182 110048999 110049204 20028950629 2.2041695785658e+018
+487	1599854 5742 3553 399710 440.35998818 536.416699166 160 110057739 110139313 17615486941 1.9394087229229e+018
+488	1605596 6489 3069 399710 440.230955784 536.416699166 181 110041495 110041700 19917543406 2.1917598637013e+018
+489	1612085 6521 3069 401519 440.230955784 536.555254184 182 110041494 110041700 20027585247 2.203869070472e+018
+490	1618606 6513 3069 401519 440.230955784 536.555254184 182 0 110139807 19926896471 2.1938189218807e+018
+491	1625119 9456 3544 401519 440.358524015 536.555254184 308 0 7504 1969850 13921688302
+492	1634575 5013 3549 401519 440.35998818 536.555254184 180 0 1 1 1
+498	1639588 5566 3069 399710 440.230955784 536.416699166 200 0 0 0 0
+174	1645154 62285 1012 408603 224.334694684 537.391117782 1964 1072 72917 131961586 9084168778650
+176	1707439 5490 1012 408159 224.334694684 537.239110458 146 0.086862631 0.106368 13.372316033 1.225112472301
+177	1712929 5473 1012 408159 224.334694684 537.239110458 146 0.010968427 0.093805378 12.730705214 1.1359698459474
+178	1718402 5472 1012 408159 224.334694684 537.239110458 146 3.644e-006 0.667218428 6.02065887 2.1233477766322
+179	1723874 4124 1012 408159 224.334694684 537.239110458 146 1 2.679842139 153.081081253 168.04890438474
+158	1727998 60398 645 408603 224.159110066 537.391117782 1966 7504 7504 14752864 110705491456
+159	1788396 62537 645 408504 224.159110066 537.30391436 2037 7504 7504 15285648 114703502592
+160	1850933 70717 645 408504 224.159110066 537.30391436 2038 56036232 56036911 114202672309 6.3995340346609e+018
+161	1921650 68138 820 407978 224.246947262 537.214950458 1963 56039778 57088820 111033184753 6.2805520080477e+018
+162	1989788 70685 645 408504 224.159110066 537.30391436 2037 56028728 56029407 114131350429 6.3946809773533e+018
+163	2060473 70743 645 408603 224.159110066 537.391117782 2038 56028727 56029407 114187386277 6.3978209935695e+018
+164	2131216 70736 645 408603 224.159110066 537.391117782 2038 0 57089021 115214430357 6.5168142786222e+018
+165	2201952 120262 811 408603 224.245972697 537.391117782 3916 0 7504 28101696 203272520324
+166	2322214 56427 816 408603 224.246947262 537.391117782 2036 0 0 0 0
+172	2378641 58376 645 408504 224.159110066 537.30391436 2108 0 0 0 0
+vector 824  InetUnderlayNetwork.overlayTerminal[1].tcp  tcpRcvQueueBytes  ETV
+vector 812  InetUnderlayNetwork.overlayTerminal[1].tcp  "advertised window"  ETV
+vector 811  InetUnderlayNetwork.overlayTerminal[1].tcp  "receive window"  ETV
+vector 814  InetUnderlayNetwork.overlayTerminal[1].tcp  "sent ack"  ETV
+vector 792  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "rcvd seq"  ETV
+vector 793  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "rcvd ack"  ETV
+vector 789  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "advertised window"  ETV
+vector 787  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "send window"  ETV
+vector 801  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  tcpRcvQueueBytes  ETV
+vector 788  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "receive window"  ETV
+vector 791  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "sent ack"  ETV
+vector 815  InetUnderlayNetwork.overlayTerminal[1].tcp  "rcvd seq"  ETV
+vector 816  InetUnderlayNetwork.overlayTerminal[1].tcp  "rcvd ack"  ETV
+vector 810  InetUnderlayNetwork.overlayTerminal[1].tcp  "send window"  ETV
+vector 813  InetUnderlayNetwork.overlayTerminal[1].tcp  "sent seq"  ETV
+vector 817  InetUnderlayNetwork.overlayTerminal[1].tcp  "unacked bytes"  ETV
+vector 121  InetUnderlayNetwork.accessRouter[1].ppp[1].queue  "queue length"  ETV
+vector 794  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "unacked bytes"  ETV
+vector 795  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "rcvd dupAcks"  ETV
+vector 828  InetUnderlayNetwork.overlayTerminal[1].tcp  "measured RTT"  ETV
+vector 829  InetUnderlayNetwork.overlayTerminal[1].tcp  "smoothed RTT"  ETV
+vector 830  InetUnderlayNetwork.overlayTerminal[1].tcp  RTTVAR  ETV
+vector 831  InetUnderlayNetwork.overlayTerminal[1].tcp  RTO  ETV
+vector 826  InetUnderlayNetwork.overlayTerminal[1].tcp  cwnd  ETV
+vector 818  InetUnderlayNetwork.overlayTerminal[1].tcp  "rcvd dupAcks"  ETV
+vector 803  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  cwnd  ETV
+803	2439156 30 408858 408858 583.21189261 583.21189261 1 1072 1072 1072 1149184
+787	2439186 92 408641 408858 583.123326562 583.21189261 3 7504 7504 22512 168930048
+788	2439278 124 408641 408758 583.123326562 583.167704462 4 7504 7504 30016 225240064
+789	2439402 180 408641 408758 583.123326562 583.167704462 5 145782816 145782908 728914355 1.0626322738502e+017
+791	2439582 144 408641 408758 583.123326562 583.167704462 4 145775312 145775404 583101523 8.5001846531236e+016
+792	2439726 179 408641 408858 583.123326562 583.21189261 5 145775311 145775404 728876742 1.0625226100572e+017
+793	2439905 171 408641 408858 583.123326562 583.21189261 5 0 145780833 583123329 8.5008204206011e+016
+794	2440076 83 408742 408858 583.167483516 583.21189261 3 0 1 1 1
+795	2440159 83 408746 408858 583.167666862 583.21189261 3 0 0 0 0
+801	2440242 140 408641 408758 583.123326562 583.167704462 5 0 0 0 0
+vector 897  InetUnderlayNetwork.overlayTerminal[3].tcp  tcpRcvQueueBytes  ETV
+vector 885  InetUnderlayNetwork.overlayTerminal[3].tcp  "advertised window"  ETV
+vector 884  InetUnderlayNetwork.overlayTerminal[3].tcp  "receive window"  ETV
+vector 887  InetUnderlayNetwork.overlayTerminal[3].tcp  "sent ack"  ETV
+vector 838  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "rcvd seq"  ETV
+vector 839  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "rcvd ack"  ETV
+vector 835  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "advertised window"  ETV
+vector 833  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "send window"  ETV
+vector 847  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  tcpRcvQueueBytes  ETV
+vector 834  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "receive window"  ETV
+vector 837  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "sent ack"  ETV
+vector 888  InetUnderlayNetwork.overlayTerminal[3].tcp  "rcvd seq"  ETV
+vector 889  InetUnderlayNetwork.overlayTerminal[3].tcp  "rcvd ack"  ETV
+vector 883  InetUnderlayNetwork.overlayTerminal[3].tcp  "send window"  ETV
+vector 886  InetUnderlayNetwork.overlayTerminal[3].tcp  "sent seq"  ETV
+vector 890  InetUnderlayNetwork.overlayTerminal[3].tcp  "unacked bytes"  ETV
+vector 858  InetUnderlayNetwork.overlayTerminal[3].ppp[0].queue  "queue length"  ETV
+vector 840  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "unacked bytes"  ETV
+vector 841  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "rcvd dupAcks"  ETV
+vector 836  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "sent seq"  ETV
+vector 901  InetUnderlayNetwork.overlayTerminal[3].tcp  "measured RTT"  ETV
+vector 902  InetUnderlayNetwork.overlayTerminal[3].tcp  "smoothed RTT"  ETV
+vector 903  InetUnderlayNetwork.overlayTerminal[3].tcp  RTTVAR  ETV
+vector 904  InetUnderlayNetwork.overlayTerminal[3].tcp  RTO  ETV
+vector 899  InetUnderlayNetwork.overlayTerminal[3].tcp  cwnd  ETV
+vector 891  InetUnderlayNetwork.overlayTerminal[3].tcp  "rcvd dupAcks"  ETV
+vector 943  InetUnderlayNetwork.overlayTerminal[3].tcp  tcpRcvQueueBytes  ETV
+vector 931  InetUnderlayNetwork.overlayTerminal[3].tcp  "advertised window"  ETV
+vector 930  InetUnderlayNetwork.overlayTerminal[3].tcp  "receive window"  ETV
+vector 933  InetUnderlayNetwork.overlayTerminal[3].tcp  "sent ack"  ETV
+vector 966  InetUnderlayNetwork.overlayTerminal[3].tcp  tcpRcvQueueBytes  ETV
+vector 954  InetUnderlayNetwork.overlayTerminal[3].tcp  "advertised window"  ETV
+vector 953  InetUnderlayNetwork.overlayTerminal[3].tcp  "receive window"  ETV
+vector 956  InetUnderlayNetwork.overlayTerminal[3].tcp  "sent ack"  ETV
+vector 989  InetUnderlayNetwork.overlayTerminal[3].tcp  tcpRcvQueueBytes  ETV
+vector 977  InetUnderlayNetwork.overlayTerminal[3].tcp  "advertised window"  ETV
+vector 976  InetUnderlayNetwork.overlayTerminal[3].tcp  "receive window"  ETV
+vector 979  InetUnderlayNetwork.overlayTerminal[3].tcp  "sent ack"  ETV
+vector 851  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "measured RTT"  ETV
+vector 852  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  "smoothed RTT"  ETV
+vector 853  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  RTTVAR  ETV
+vector 854  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  RTO  ETV
+vector 849  InetUnderlayNetwork.inet.applications.BitTorrent.Tracker.tcp  cwnd  ETV
+vector 677  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "rcvd seq"  ETV
+vector 678  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "rcvd ack"  ETV
+vector 674  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "advertised window"  ETV
+vector 672  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "send window"  ETV
+vector 686  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  tcpRcvQueueBytes  ETV
+vector 673  InetUnderlayNetwork.inet.applications.BitTorrent.BTHostSeeder.tcp  "receive window"  ETV
+vector 676  
