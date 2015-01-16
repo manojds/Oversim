@@ -199,8 +199,8 @@ TransportAddress* InetUnderlayConfigurator::createNode(NodeType type, bool initi
 		//following if clause is added by Manoj for relay peers
 		if(strcmp(type.terminalType.c_str(),"inet.applications.BitTorrent.BTHostRelay")==0)
 		{
-	        node->getSubmodule("relayTrackerClient")->par("connectAddress") = addrString.c_str();
-	        node->getSubmodule("relayTrackerClient")->par("connectPort") = trackerAddress->getPort();
+	        node->getSubmodule("relay_trackerClient")->par("connectAddress") = addrString.c_str();
+	        node->getSubmodule("relay_trackerClient")->par("connectPort") = trackerAddress->getPort();
 		}
 
 	
@@ -219,8 +219,8 @@ TransportAddress* InetUnderlayConfigurator::createNode(NodeType type, bool initi
         //following if clause is added by Manoj for relay peers
         if(strcmp(type.terminalType.c_str(),"inet.applications.BitTorrent.BTHostRelay")==0)
         {
-            node->getSubmodule("relayTrackerClient")->par("address") = addrString.c_str();
-            node->getSubmodule("relayTrackerClient")->par("port") = address->getPort();
+            node->getSubmodule("relay_trackerClient")->par("address") = addrString.c_str();
+            node->getSubmodule("relay_trackerClient")->par("port") = address->getPort();
         }
 
 		
