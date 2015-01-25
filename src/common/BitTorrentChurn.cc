@@ -31,6 +31,8 @@
 
 Define_Module(BitTorrentChurn);
 
+bool BitTorrentChurn::b_TrackerCreated(false);
+
 void BitTorrentChurn::initializeChurn()
 {
     Enter_Method_Silent();
@@ -171,8 +173,7 @@ void BitTorrentChurn::updateDisplayString()
     getDisplayString().setTagArg("t", 0, buf);
 }
 
-BitTorrentChurn::BitTorrentChurn():
-	b_TrackerCreated(false)
+BitTorrentChurn::BitTorrentChurn()
 {
 }
 
