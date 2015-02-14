@@ -156,81 +156,11 @@ TransportAddress* InetUnderlayConfigurator::createNode(NodeType type, bool initi
 
 
 
-//Code commented by Manoj
-//    // update display
-//    setDisplayString();
-//
-//    return address;
+    // update display
+    setDisplayString();
 
-//Code added instead of above	
+    return address;
 
-	//Get the address of the new node
-	IPvXAddress localAddress = IPAddressResolver().addressOf(node);
-
-	//Set the address and port at which the tracker listens
-	// and the address and port for this node's tcp client.
-	//Commented by Manoj (content of the original Bittorrent code)
-	//if (!strcmp(terminalType,"BTHost"))
-	//following line is added by Manoj
-	if(strcmp(type.terminalType.c_str(),"inet.applications.BitTorrent.BTHost")==0 ||
-	        //following part for if condition was added by Manoj for relay peers
-	        strcmp(type.terminalType.c_str(),"inet.applications.BitTorrent.BTHostRelay")==0)
-	{
-		//Commented by Manoj
-		//IPvXAddress trackerAddr = trackerAddress->getAddress();
-		//Added instead of Above
-		IPvXAddress trackerAddr = trackerAddress->getIp();
-		std::string addrString;
-		if (!trackerAddr.isIPv6())
-			addrString = trackerAddr.get4().str();
-		else
-			addrString = trackerAddr.get6().str();
-
-		EV<<"************** InetUnderlayConfigurator::createNode - Setting Address and Port parameters **********\n";
-		EV<<"************** Trcker Addr["<<addrString.c_str()<<"] Port ["<< trackerAddress->getPort()<<"]";
-	
-		//modified by Manoj
-		node->getSubmodule("trackerClient")->par("connectAddress") = addrString.c_str();
-		node->getSubmodule("trackerClient")->par("connectPort") = trackerAddress->getPort();
-
-        //node->getSubmodule("trackerClient")->par("connectAddress").setStringValue( addrString.c_str());
-        //node->getSubmodule("trackerClient")->par("connectPort") = trackerAddress->getPort();
-
-		//following if clause is added by Manoj for relay peers
-		if(strcmp(type.terminalType.c_str(),"inet.applications.BitTorrent.BTHostRelay")==0)
-		{
-	        node->getSubmodule("relay_trackerClient")->par("connectAddress") = addrString.c_str();
-	        node->getSubmodule("relay_trackerClient")->par("connectPort") = trackerAddress->getPort();
-		}
-
-	
-		if (!localAddress.isIPv6())
-			addrString = localAddress.get4().str();
-		else
-			addrString = localAddress.get6().str();
-	
-		//modified by Manoj
-		node->getSubmodule("trackerClient")->par("address") = addrString.c_str();
-		node->getSubmodule("trackerClient")->par("port") = address->getPort();
-
-		//node->getSubmodule("trackerClient")->par("address").setStringValue(addrString.c_str());
-		//node->getSubmodule("trackerClient")->par("port") = address->getPort();
-
-        //following if clause is added by Manoj for relay peers
-        if(strcmp(type.terminalType.c_str(),"inet.applications.BitTorrent.BTHostRelay")==0)
-        {
-            node->getSubmodule("relay_trackerClient")->par("address") = addrString.c_str();
-            node->getSubmodule("relay_trackerClient")->par("port") = address->getPort();
-        }
-
-		
-
-	}
-
-	// update display
-	setDisplayString();
-
-	return address;
 
 }
 
@@ -740,27 +670,76 @@ Define_NED_Math_Function(intuniform2, 4);
  * created the tracker and the Seeder
  */
 
-void InetUnderlayConfigurator::createTracker()
+void InetUnderlayConfigurator::createTrackerAndSeeder()
 {
 
 	//following code is adedd by Manoj fir BitTorrent
-	const char* hostType = getParentModule()->par("overlayTerminalType");
 
-	EV<<"***************** InetUnderlayConfigurator::initializeUnderlay - Host type is ["<< hostType<<"]\n";
-	
-	//
-	
-	if (!strcmp(hostType,"BTHost"))
-	{
-		EV<<"***************** InetUnderlayConfigurator::initializeUnderlay - Creating BT Host\n";
-		trackerAddress = createBTNode("inet.applications.BitTorrent.Tracker",false);
-		createBTNode("inet.applications.BitTorrent.BTHostSeeder",false);
-	}
-	else
-	{
-		EV<<"***************** InetUnderlayConfigurator::initializeUnderlay - Module type is not BT Host. type is ["<<
-			getModuleType()->getFullName()<<"] Parent Moduletype ["<< getParentModule()->getModuleType()->getFullName()<<"] \n";
-	}
+//    NodeType trackerNT;
+//    //we take the type ID as one. So always number of terminals from first churn generator will be specified amount -1.
+//    trackerNT.typeID=1;
+//    trackerNT.context=NULL;
+//    trackerNT.terminalType="inet.applications.BitTorrent.Tracker";
+
+    trackerAddress=createBTInitialNode("inet.applications.BitTorrent.Tracker", false);
+    createBTInitialNode("inet.applications.BitTorrent.BTHostSeeder",false);
+
+    //Following code commented by Manoj. Following checks are not needed now - BTR-011 - 2015-02-14
+
+//	const char* hostType = getParentModule()->par("overlayTerminalType");
+//
+//	EV<<"***************** InetUnderlayConfigurator::initializeUnderlay - Host type is ["<< hostType<<"]\n";
+//
+//	//
+//
+//	if (!strcmp(hostType,"BTHost"))
+//	{
+//		EV<<"***************** InetUnderlayConfigurator::initializeUnderlay - Creating BT Host\n";
+//		trackerAddress = createBTNode("inet.applications.BitTorrent.Tracker",false);
+//		createBTNode("inet.applications.BitTorrent.BTHostSeeder",false);
+//	}
+//	else
+//	{
+//		EV<<"***************** InetUnderlayConfigurator::initializeUnderlay - Module type is not BT Host. type is ["<<
+//			getModuleType()->getFullName()<<"] Parent Moduletype ["<< getParentModule()->getModuleType()->getFullName()<<"] \n";
+//	}
+}
+
+//function Added by Manoj - BTR-011 - 2015-02-14
+TransportAddress* InetUnderlayConfigurator::createBTNode(NodeType type, bool initialize)
+{
+    TransportAddress* pTransAddr= createNode(type, initialize);
+    PeerInfo* pPeerInfo= globalNodeList->getPeerInfo(*pTransAddr);
+    if( pPeerInfo != NULL)
+    {
+        cModule *node = simulation.getModule( pPeerInfo->getModuleID());
+
+        IPvXAddress trackerAddr = trackerAddress->getIp();
+        std::string addrString;
+        if (!trackerAddr.isIPv6())
+            addrString = trackerAddr.get4().str();
+        else
+            addrString = trackerAddr.get6().str();
+
+        node->getSubmodule("trackerClient")->par("connectAddress") = addrString.c_str();
+        node->getSubmodule("trackerClient")->par("connectPort") = trackerAddress->getPort();
+
+
+        //following if clause is added by Manoj for relay peers
+        if(strcmp(type.terminalType.c_str(),"inet.applications.BitTorrent.BTHostRelay")==0)
+        {
+            node->getSubmodule("relay_trackerClient")->par("connectAddress") = addrString.c_str();
+            node->getSubmodule("relay_trackerClient")->par("connectPort") = trackerAddress->getPort();
+        }
+    }
+    else
+    {
+        throw cRuntimeError("InetUnderlayConfigurator::createBTNode(): "
+                "Failed to find the Peer info of the tracker from the global nodes list");
+
+    }
+
+    return pTransAddr;
 }
 
 
@@ -769,7 +748,7 @@ void InetUnderlayConfigurator::createTracker()
  * that it is reachable by peers. (Derived by IPv4UnderlayConfigurator::createNode())
  *
  */
-TransportAddress* InetUnderlayConfigurator::createBTNode(const char* type,bool initialize)
+TransportAddress* InetUnderlayConfigurator::createBTInitialNode(const char* type,bool initialize)
 {
     const char* device;
     char buf[80];
@@ -875,14 +854,14 @@ TransportAddress* InetUnderlayConfigurator::createBTNode(const char* type,bool i
 		node->getSubmodule("trackerClient")->par("connectPort") = trackerAddress->getPort();
 
 	
-		if (!localAddress.isIPv6())
-			addrString = localAddress.get4().str();
-		else
-			addrString = localAddress.get6().str();
-	
-
-		node->getSubmodule("trackerClient")->par("address") = addrString.c_str();
-		node->getSubmodule("trackerClient")->par("port") = address->getPort();
+//		if (!localAddress.isIPv6())
+//			addrString = localAddress.get4().str();
+//		else
+//			addrString = localAddress.get6().str();
+//
+//
+//		node->getSubmodule("trackerClient")->par("address") = addrString.c_str();
+//		node->getSubmodule("trackerClient")->par("port") = address->getPort();
 
 		
 	}

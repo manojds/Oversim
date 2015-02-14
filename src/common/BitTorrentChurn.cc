@@ -93,7 +93,7 @@ void BitTorrentChurn::handleMessage(cMessage* msg)
 		if(pConfigurator ==NULL)
 			opp_error("BitTorrentChurn::handleMessage - underlayConfigurator is not InetUnderlayConfigurator type.");
 
-		pConfigurator->createTracker();
+		pConfigurator->createTrackerAndSeeder();
 		b_TrackerCreated=true;
 	}
 
@@ -119,8 +119,14 @@ void BitTorrentChurn::handleMessage(cMessage* msg)
 
 void BitTorrentChurn::createNode()
 {
-	EV<<"***************- BitTorrentChurn::createNode - Function Called. termialtype is ["<<type.terminalType <<"]. \n";
-    TransportAddress* ta = underlayConfigurator->createNode(type);
+    InetUnderlayConfigurator * pConfigurator=check_and_cast<InetUnderlayConfigurator*>(underlayConfigurator);
+    if(pConfigurator ==NULL)
+        opp_error("BitTorrentChurn::handleMessage - underlayConfigurator is not InetUnderlayConfigurator type.");
+
+    TransportAddress* ta = pConfigurator->createBTNode(type);
+
+
+
     delete ta;
 
 	//Commented by MAnoj
@@ -140,6 +146,21 @@ void BitTorrentChurn::createNode()
     lastCreate = simTime();
 }
 
+//Added by Manoj- BTR-011 - 2015-02-14
+void BitTorrentChurn::createInitialNodes()
+{
+    InetUnderlayConfigurator * pConfigurator=check_and_cast<InetUnderlayConfigurator*>(underlayConfigurator);
+    if(pConfigurator ==NULL)
+        opp_error("BitTorrentChurn::handleMessage - underlayConfigurator is not InetUnderlayConfigurator type.");
+
+    pConfigurator->createTrackerAndSeeder();
+
+    //trackerAddress = pConfigurator->createBTNode("inet.applications.BitTorrent.Tracker",false);
+    //pConfigurator->createBTNode("inet.applications.BitTorrent.BTHostSeeder",false);
+
+    b_TrackerCreated=true;
+
+}
 
 double BitTorrentChurn::distributionFunction()
 {

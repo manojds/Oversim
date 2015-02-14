@@ -67,8 +67,10 @@ public:
 
 	//*********************************************************
 	//**** functions added by Manoj for Bittorrent module
-	TransportAddress* createBTNode(const char* type,bool initialize);
-	void createTracker();
+	TransportAddress* createBTInitialNode(const char* type,bool initialize);
+	//function Added by Manoj - BTR-011 - 2015-02-14
+	TransportAddress* createBTNode(NodeType type, bool initialize=false);
+	void createTrackerAndSeeder();
 
 private:
     // parameters

@@ -49,6 +49,8 @@ class BitTorrentChurn : public ChurnGenerator
 
 
 private:
+	//function added by Manoj BTR-011 - 2015-02-14
+	void createInitialNodes();
 	GlobalStatistics* globalStatistics;   	//!< pointer to GlobalStatistics module in this node */
     std::string bittorrentDistName; 	//!< name of the distribution function
 	int targetOverlayTerminalNum;
