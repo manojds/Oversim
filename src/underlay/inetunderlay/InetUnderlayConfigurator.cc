@@ -726,7 +726,7 @@ TransportAddress* InetUnderlayConfigurator::createBTNode(NodeType type, bool ini
 
 
         //following if clause is added by Manoj for relay peers
-        if(strcmp(type.terminalType.c_str(),"inet.applications.BitTorrent.BTHostRelay")==0)
+        if(strcmp(type.terminalType.c_str(),"inet.applications.BitTorrentSPD.BTHostRelay")==0)
         {
             node->getSubmodule("relay_trackerClient")->par("connectAddress") = addrString.c_str();
             node->getSubmodule("relay_trackerClient")->par("connectPort") = trackerAddress->getPort();
