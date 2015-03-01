@@ -755,7 +755,7 @@ TransportAddress* InetUnderlayConfigurator::createBTInitialNode(const char* type
     char buf[80];
     
     const char * pOnlyModulename=strrchr(type, '.');
-    strcpy(buf, pOnlyModulename);
+    strcpy(buf, pOnlyModulename+1); //+1 is for omit the dot
 
     cModuleType* moduleType = cModuleType::get(type);
     cModule*  node = moduleType->create(buf, getParentModule());
