@@ -36,56 +36,56 @@ bool BitTorrentChurn::b_TrackerCreated(false);
 void BitTorrentChurn::initializeChurn()
 {
     Enter_Method_Silent();
-	
-	EV<<"***************- BitTorrentChurn::initializeChurn - Function Called\n";
 
     initAddMoreTerminals = true;
     targetOverlayTerminalNum = par("targetOverlayTerminalNum");
-    bittorrentDistName = std::string(par("bittorrentDistName").stdstringValue());
+
+    bittorrentDistName = std::string(
+            par("bittorrentDistName").stdstringValue());
+
     bittorrentDistPar1 = par("bittorrentDistPar1");
 
-    if (bittorrentDistName == "decreasingExponentialArrivalRate") 
-	bittorrentDistPar2  = targetOverlayTerminalNum/bittorrentDistPar1;
+    if (bittorrentDistName == "decreasingExponentialArrivalRate")
+        bittorrentDistPar2 = targetOverlayTerminalNum / bittorrentDistPar1;
     else
-    	bittorrentDistPar2 = par("bittorrentDistPar2");
-    
-    if (bittorrentDistPar1 <= 0) 
-    {
+        bittorrentDistPar2 = par("bittorrentDistPar2");
+
+    if (bittorrentDistPar1 <= 0) {
         opp_error("BitTorrentChurn currently only works with "
-          "bittorrentDistPar1 > 0");
+                "bittorrentDistPar1 > 0");
     }
 
-    if (bittorrentDistPar2 <= 0) 
-    {
+    if (bittorrentDistPar2 <= 0) {
         opp_error("BitTorrentChurn currently only works with "
-          "bittorrentDistPar2 > 0 ");
+                "bittorrentDistPar2 > 0 ");
     }
-
 
     globalStatistics = GlobalStatisticsAccess().get();
 
-    lastCreate  = simTime();
-
+    lastCreate = simTime();
 
     terminalCount = 0;
 
-    for (int i = 0; i < targetOverlayTerminalNum; i++) 
+    scheduleNodeCreations();
+}
+
+void BitTorrentChurn::scheduleNodeCreations()
+{
+    for (int i = 0; i < targetOverlayTerminalNum; i++)
     {
-	scheduleAt(simTime() + distributionFunction(), new ChurnMessage("CreateNode"));
+        scheduleAt(simTime() + distributionFunction(),
+                new ChurnMessage("CreateNode"));
     }
 }
 
 void BitTorrentChurn::handleMessage(cMessage* msg)
 {
-	EV<<"***************- BitTorrentChurn::handleMessage - Function Called\n";
 
     if (!msg->isSelfMessage()) 
     {
         delete msg;
         return;
     }
-
-	EV<<"***************- BitTorrentChurn::handleMessage - not a self message.\n";
 
 	if(!b_TrackerCreated)
 	{
@@ -99,19 +99,19 @@ void BitTorrentChurn::handleMessage(cMessage* msg)
 
     if (terminalCount >= targetOverlayTerminalNum) 
     {
-            initAddMoreTerminals = false;
-            underlayConfigurator->initFinished();
-	    delete msg;
-	    return;
+        initAddMoreTerminals = false;
+        underlayConfigurator->initFinished();
+        delete msg;
+        return;
     } 
     else
     {
-	if( dynamic_cast<ChurnMessage*>(msg) )
-	{
-		createNode();
-	}
-	else
-		opp_error("Unexpected msg type");
+        if (dynamic_cast<ChurnMessage*>(msg))
+        {
+            createNode();
+        }
+        else
+            opp_error("Unexpected msg type");
     }
 
     delete msg;
@@ -123,9 +123,9 @@ void BitTorrentChurn::createNode()
     if(pConfigurator ==NULL)
         opp_error("BitTorrentChurn::handleMessage - underlayConfigurator is not InetUnderlayConfigurator type.");
 
-    TransportAddress* ta = pConfigurator->createBTNode(type);
+    //TransportAddress* ta = pConfigurator->createBTNode(type);
 
-
+    TransportAddress* ta = pConfigurator->createNode(type);
 
     delete ta;
 

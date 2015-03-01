@@ -36,33 +36,33 @@
 class BitTorrentChurn : public ChurnGenerator
 {
     public:
-        void handleMessage(cMessage* msg);
-        void initializeChurn();
-	BitTorrentChurn();
-        ~BitTorrentChurn();
+    virtual void handleMessage(cMessage* msg);
+    virtual void initializeChurn();
+    BitTorrentChurn();
+    ~BitTorrentChurn();
 
-    protected:
-        void updateDisplayString();
-	void createNode();
-	double distributionFunction();
-	double exponentialDecayArrivalRate();
-
+protected:
+    virtual void scheduleNodeCreations();
+    void updateDisplayString();
+    virtual void createNode();
+    double distributionFunction();
+    double exponentialDecayArrivalRate();
 
 private:
-	//function added by Manoj BTR-011 - 2015-02-14
-	void createInitialNodes();
-	GlobalStatistics* globalStatistics;   	//!< pointer to GlobalStatistics module in this node */
-    std::string bittorrentDistName; 	//!< name of the distribution function
-	int targetOverlayTerminalNum;
-    double bittorrentDistPar1; 		//!< distribution function parameter
-	double bittorrentDistPar2; 		//!< distribution function parameter
+    //function added by Manoj BTR-011 - 2015-02-14
+    void createInitialNodes();
+    GlobalStatistics* globalStatistics; //!< pointer to GlobalStatistics module in this node */
+    std::string bittorrentDistName; //!< name of the distribution function
+    int targetOverlayTerminalNum;
+    double bittorrentDistPar1; //!< distribution function parameter
+    double bittorrentDistPar2; //!< distribution function parameter
 
-	bool initAddMoreTerminals;
-	simtime_t lastCreate;
-	//Added by Manoj
-	//Made it staic such that it will persist over many Churn generators
-	//and hence only one tracker and BThostSeeder will get created.
-	static bool b_TrackerCreated;
+    bool initAddMoreTerminals;
+    simtime_t lastCreate;
+    //Added by Manoj
+    //Made it staic such that it will persist over many Churn generators
+    //and hence only one tracker and BThostSeeder will get created.
+    static bool b_TrackerCreated;
 };
 
 

@@ -754,8 +754,11 @@ TransportAddress* InetUnderlayConfigurator::createBTInitialNode(const char* type
     const char* device;
     char buf[80];
     
+    const char * pOnlyModulename=strrchr(type, '.');
+    strcpy(buf, pOnlyModulename);
+
     cModuleType* moduleType = cModuleType::get(type);
-    cModule*  node = moduleType->create(type, getParentModule());
+    cModule*  node = moduleType->create(buf, getParentModule());
     
     
     //Code Added by Manoj
@@ -768,7 +771,7 @@ TransportAddress* InetUnderlayConfigurator::createBTInitialNode(const char* type
 
 	//edited by Manoj
     //sprintf(buf, type);
-    strcpy(buf, type);
+    //strcpy(buf, type);
 
     if (!strcmp(type,"inet.applications.BitTorrent.Tracker"))
         device  = "i=device/server_l";
@@ -799,7 +802,7 @@ TransportAddress* InetUnderlayConfigurator::createBTInitialNode(const char* type
     info->setNodeID(node->getId());
 
     // append index to module name
-    node->setName(buf);
+    //node->setName(buf);
 
     //add node to bootstrap oracle
     //edited by Manoj
