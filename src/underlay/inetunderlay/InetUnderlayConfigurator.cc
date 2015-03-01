@@ -706,43 +706,43 @@ void InetUnderlayConfigurator::createTrackerAndSeeder()
 //	}
 }
 
-//function Added by Manoj - BTR-011 - 2015-02-14
-TransportAddress* InetUnderlayConfigurator::createBTNode(NodeType type, bool initialize)
-{
-    TransportAddress* pTransAddr= createNode(type, initialize);
-    PeerInfo* pPeerInfo= globalNodeList->getPeerInfo(*pTransAddr);
-    if( pPeerInfo != NULL)
-    {
-        cModule *node = simulation.getModule( pPeerInfo->getModuleID());
-
-        IPvXAddress trackerAddr = trackerAddress->getIp();
-        std::string addrString;
-        if (!trackerAddr.isIPv6())
-            addrString = trackerAddr.get4().str();
-        else
-            addrString = trackerAddr.get6().str();
-
-        node->getSubmodule("trackerClient")->par("connectAddress") = addrString.c_str();
-        node->getSubmodule("trackerClient")->par("connectPort") = trackerAddress->getPort();
-
-
-        //following if clause is added by Manoj for relay peers
-        if(strcmp(type.terminalType.c_str(),"inet.applications.BitTorrentSPD.BTHostRelay")==0)
-        {
-            node->getSubmodule("relay_trackerClient")->par("connectAddress") = addrString.c_str();
-            node->getSubmodule("relay_trackerClient")->par("connectPort") = trackerAddress->getPort();
-        }
-    }
-    else
-    {
-        throw cRuntimeError("InetUnderlayConfigurator::createBTNode(): "
-                "Failed to find the Peer info of the tracker from the global nodes list");
-
-    }
-
-    return pTransAddr;
-}
-
+////function Added by Manoj - BTR-011 - 2015-02-14
+//TransportAddress* InetUnderlayConfigurator::createBTNode(NodeType type, bool initialize)
+//{
+//    TransportAddress* pTransAddr= createNode(type, initialize);
+//    PeerInfo* pPeerInfo= globalNodeList->getPeerInfo(*pTransAddr);
+//    if( pPeerInfo != NULL)
+//    {
+//        cModule *node = simulation.getModule( pPeerInfo->getModuleID());
+//
+//        IPvXAddress trackerAddr = trackerAddress->getIp();
+//        std::string addrString;
+//        if (!trackerAddr.isIPv6())
+//            addrString = trackerAddr.get4().str();
+//        else
+//            addrString = trackerAddr.get6().str();
+//
+//        node->getSubmodule("trackerClient")->par("connectAddress") = addrString.c_str();
+//        node->getSubmodule("trackerClient")->par("connectPort") = trackerAddress->getPort();
+//
+//
+//        //following if clause is added by Manoj for relay peers
+//        if(strcmp(type.terminalType.c_str(),"inet.applications.BitTorrentSPD.BTHostRelay")==0)
+//        {
+//            node->getSubmodule("relay_trackerClient")->par("connectAddress") = addrString.c_str();
+//            node->getSubmodule("relay_trackerClient")->par("connectPort") = trackerAddress->getPort();
+//        }
+//    }
+//    else
+//    {
+//        throw cRuntimeError("InetUnderlayConfigurator::createBTNode(): "
+//                "Failed to find the Peer info of the tracker from the global nodes list");
+//
+//    }
+//
+//    return pTransAddr;
+//}
+//
 
 /**
  * This is the function that creates and connects the tracker to a randomly selected access router so 
