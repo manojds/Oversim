@@ -682,7 +682,8 @@ void InetUnderlayConfigurator::createTrackerAndSeeder()
 //    trackerNT.terminalType="inet.applications.BitTorrent.Tracker";
 
     trackerAddress=createBTInitialNode("inet.applications.BitTorrent.Tracker", false);
-    createBTInitialNode("inet.applications.BitTorrent.BTHostSeeder",false);
+    //Removed by Manoj - BTR-012 - 2015-03-01
+    //createBTInitialNode("inet.applications.BitTorrent.BTHostSeeder",false);
 
     //Following code commented by Manoj. Following checks are not needed now - BTR-011 - 2015-02-14
 
@@ -836,22 +837,25 @@ TransportAddress* InetUnderlayConfigurator::createBTInitialNode(const char* type
 	else
 	{//this is BTHostSeeder then
 
-		//Get the address of the new node
-		IPvXAddress localAddress = IPAddressResolver().addressOf(node);
+	    throw cRuntimeError("InetUnderlayConfigurator::createBTInitialNode - Unknown node type [%s] specified",type);
 
-		IPvXAddress trackerAddr = trackerAddress->getIp();
-		std::string addrString;
-		if (!trackerAddr.isIPv6())
-			addrString = trackerAddr.get4().str();
-		else
-			addrString = trackerAddr.get6().str();
-
-		EV<<"************** InetUnderlayConfigurator::createBTNode - Creating BTHostSeeder, Setting Address and Port parameters **********\n";
-		EV<<"************** Trcker Addr["<<addrString.c_str()<<"] Port ["<< trackerAddress->getPort()<<"]";
-	
-
-		node->getSubmodule("trackerClient")->par("connectAddress") = addrString.c_str();
-		node->getSubmodule("trackerClient")->par("connectPort") = trackerAddress->getPort();
+	    //Removed by Manoj - BTR-012 - 2015-03-01
+//		//Get the address of the new node
+//		IPvXAddress localAddress = IPAddressResolver().addressOf(node);
+//
+//		IPvXAddress trackerAddr = trackerAddress->getIp();
+//		std::string addrString;
+//		if (!trackerAddr.isIPv6())
+//			addrString = trackerAddr.get4().str();
+//		else
+//			addrString = trackerAddr.get6().str();
+//
+//		EV<<"************** InetUnderlayConfigurator::createBTNode - Creating BTHostSeeder, Setting Address and Port parameters **********\n";
+//		EV<<"************** Trcker Addr["<<addrString.c_str()<<"] Port ["<< trackerAddress->getPort()<<"]";
+//
+//
+//		node->getSubmodule("trackerClient")->par("connectAddress") = addrString.c_str();
+//		node->getSubmodule("trackerClient")->par("connectPort") = trackerAddress->getPort();
 
 	
 //		if (!localAddress.isIPv6())
