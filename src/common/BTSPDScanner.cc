@@ -34,6 +34,7 @@ BTSPDScanner::BTSPDScanner():
 
 BTSPDScanner::~BTSPDScanner()
 {
+    delete pAttackTimerMsg;
 
 }
 
@@ -42,10 +43,15 @@ void BTSPDScanner::initialize()
     pAttackTimerMsg= new cMessage("ATTACK_TIMER", SCAN_AND_ATTACK_TIMER);
     globalNodeList = GlobalNodeListAccess().get();
 
-    double dInfectionRate=par("infectionRate");
-    i_ScanInterval=(int)(1/dInfectionRate);
+    bool bEnableScanning= par("enableScanning");
+    if(bEnableScanning)
+    {
 
-    scanAndAttack();
+        double dInfectionRate=par("infectionRate");
+        i_ScanInterval=(int)(1/dInfectionRate);
+
+        scanAndAttack();
+    }
 }
 
 void BTSPDScanner::handleMessage(cMessage *msg)
@@ -60,6 +66,8 @@ void BTSPDScanner::handleMessage(cMessage *msg)
 
 void BTSPDScanner::scanAndAttack()
 {
+    std::cout<<"scanAndAttack - enter"<<std::endl;
+
     for(;;)
     {
         PeerInfo* pe=globalNodeList->getRandomPeerInfo();
