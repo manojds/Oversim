@@ -66,8 +66,6 @@ void BTSPDScanner::handleMessage(cMessage *msg)
 
 void BTSPDScanner::scanAndAttack()
 {
-    std::cout<<"scanAndAttack - enter"<<std::endl;
-
     for(;;)
     {
         PeerInfo* pe=globalNodeList->getRandomPeerInfo();
@@ -84,13 +82,7 @@ void BTSPDScanner::scanAndAttack()
 
         if(pVulPoint->isVulnerable())
         {
-            std::cout<<pMod->getFullName()<<" - is vulnerable"<<std::endl;
-
-
-            std::cout<<"Attacking on - "<<pMod->getFullName()<<std::endl;
-
             pVulPoint->exploit();
-
         }
 
         break;
