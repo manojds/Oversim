@@ -34,8 +34,10 @@ public:
     virtual void scanAndAttack();
     virtual void handleTimer(cMessage *msg);
 
+    int             i_ScanInterval;
     GlobalNodeList* globalNodeList;
-    cMessage *      pAttackTime;
+    cMessage *      pAttackTimerMsg;
+
 };
 
 #endif

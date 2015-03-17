@@ -14,7 +14,8 @@
 // 
 
 #include "BTSPDScanner.h"
-#include "BTSPDVulnerablePoint.h"
+#include "../../inet/src/applications/BitTorrentSPD/BTSPDVulnerablePoint.h"
+#include "../../inet/src/applications/BitTorrentSPD/BTThreatHandler.h"
 #include <GlobalNodeListAccess.h>
 
 Define_Module(BTSPDScanner);
@@ -23,8 +24,10 @@ Define_Module(BTSPDScanner);
 #define SCAN_AND_ATTACK_TIMER       1
 
 BTSPDScanner::BTSPDScanner():
+        i_ScanInterval(100),
         globalNodeList(NULL),
-        pAttackTime(NULL)
+        pAttackTimerMsg(NULL)
+
 {
 
 }
@@ -36,8 +39,11 @@ BTSPDScanner::~BTSPDScanner()
 
 void BTSPDScanner::initialize()
 {
-    pAttackTime= new cMessage("ATTACK_TIMER", SCAN_AND_ATTACK_TIMER);
+    pAttackTimerMsg= new cMessage("ATTACK_TIMER", SCAN_AND_ATTACK_TIMER);
     globalNodeList = GlobalNodeListAccess().get();
+
+    double dInfectionRate=par("infectionRate");
+    i_ScanInterval=(int)(1/dInfectionRate);
 
     scanAndAttack();
 }
@@ -57,13 +63,32 @@ void BTSPDScanner::scanAndAttack()
     for(;;)
     {
         PeerInfo* pe=globalNodeList->getRandomPeerInfo();
+        if(pe == NULL)
+            break;
+
         cModule * pMod= simulation.getModule(pe->getModuleID());
+
         cModule * pSubMod= pMod->getSubmodule("vulnerability");
+        if(pSubMod == NULL)
+            continue;
+
         BTSPDVulnerablePoint * pVulPoint=check_and_cast<BTSPDVulnerablePoint *>(pSubMod);
+
+        if(pVulPoint->isVulnerable())
+        {
+            std::cout<<pMod->getFullName()<<" - is vulnerable"<<std::endl;
+
+
+            std::cout<<"Attacking on - "<<pMod->getFullName()<<std::endl;
+
+            pVulPoint->exploit();
+
+        }
+
         break;
     }
 
-    scheduleAt(simTime()+1,pAttackTime );
+    scheduleAt(simTime()+i_ScanInterval,pAttackTimerMsg );
 
 
 }

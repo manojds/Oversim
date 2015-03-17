@@ -20,4 +20,6 @@ package oversim.common;
 //
 simple BTSPDScanner like IGlobalFunctions
 {
+    parameters:
+        double infectionRate;
 }
