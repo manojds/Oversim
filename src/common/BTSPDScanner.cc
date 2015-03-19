@@ -34,8 +34,7 @@ BTSPDScanner::BTSPDScanner():
 
 BTSPDScanner::~BTSPDScanner()
 {
-    delete pAttackTimerMsg;
-
+    cancelAndDelete(pAttackTimerMsg);
 }
 
 void BTSPDScanner::initialize()
