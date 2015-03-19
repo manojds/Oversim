@@ -81,7 +81,8 @@ void BTSPDScanner::scanAndAttack()
 
         if(pVulPoint->isVulnerable())
         {
-            pVulPoint->exploit();
+            if (pVulPoint->exploit() == false )
+                continue;
         }
 
         break;
