@@ -200,5 +200,8 @@ BitTorrentChurn::BitTorrentChurn()
 
 BitTorrentChurn::~BitTorrentChurn()
 {
+    //Set tracker created to false,
+    //such that multiple runs will execute without any problem
+    b_TrackerCreated = false;
 
 }
