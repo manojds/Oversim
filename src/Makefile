@@ -149,7 +149,9 @@ OBJS = \
     $O/common/BaseTcpSupport.o \
     $O/common/BinaryValue.o \
     $O/common/BitTorrentChurn.o \
+    $O/common/BitTorrentNoChurn.o \
     $O/common/BootstrapList.o \
+    $O/common/BTSPDScanner.o \
     $O/common/ChurnGenerator.o \
     $O/common/cnetcommbuffer.o \
     $O/common/CoordinateSystem.o \
@@ -1726,6 +1728,32 @@ $O/applications/tierdummy/TierDummy.o: applications/tierdummy/TierDummy.cc \
   common/RpcMacros.h \
   common/BaseRpc.h \
   common/OverSimMessage_m.h
+$O/common/BTSPDScanner.o: common/BTSPDScanner.cc \
+  ../../inet/src/transport/contract/TCPSocketMap.h \
+  common/oversim_mapset.h \
+  common/InitStages.h \
+  ../../inet/src/networklayer/contract/IPv6Address.h \
+  ./../../inet/src/applications/BitTorrentSPD/BTThreatHandler.h \
+  ../../inet/src/networklayer/contract/IPAddress.h \
+  ../../inet/src/networklayer/contract/IPvXAddress.h \
+  ../../inet/src/transport/contract/TCPSocket.h \
+  ./../../inet/src/applications/BitTorrentSPD/BTSPDVulnerablePoint.h \
+  common/GlobalNodeList.h \
+  common/HashFunc.h \
+  common/OverlayKey.h \
+  common/TransportAddress.h \
+  common/oversim_byteswap.h \
+  common/NodeHandle.h \
+  common/BinaryValue.h \
+  ./../../inet/src/applications/BitTorrentSPD/../tcpapp/TCPSrvHostApp.h \
+  ../../inet/src/transport/contract/TCPCommand_m.h \
+  common/ChurnGenerator.h \
+  common/PeerStorage.h \
+  common/PeerInfo.h \
+  common/BTSPDScanner.h \
+  ../../inet/src/base/INETDefs.h \
+  common/GlobalNodeListAccess.h \
+  ./../../inet/src/applications/BitTorrentSPD/../tcpapp/TCPGenericCliAppBase.h
 $O/common/BaseApp.o: common/BaseApp.cc \
   common/GlobalStatistics.h \
   ../../inet/src/base/INotifiable.h \
@@ -1942,6 +1970,12 @@ $O/common/BitTorrentChurn.o: common/BitTorrentChurn.cc \
   common/TransportAddress.h \
   common/OverlayKey.h \
   common/NodeHandle.h
+$O/common/BitTorrentNoChurn.o: common/BitTorrentNoChurn.cc \
+  common/InitStages.h \
+  common/ChurnGenerator.h \
+  common/BitTorrentNoChurn.h \
+  common/GlobalStatistics.h \
+  common/BitTorrentChurn.h
 $O/common/BootstrapList.o: common/BootstrapList.cc \
   common/OverSimMessage.h \
   common/SimpleNcs.h \
@@ -2595,6 +2629,8 @@ $O/common/ProxNodeHandle.o: common/ProxNodeHandle.cc \
   common/TransportAddress.h \
   common/OverlayKey.h \
   common/NodeHandle.h
+$O/common/ProximityLookupMessages_m.o: common/ProximityLookupMessages_m.cc \
+  common/ProximityLookupMessages_m.h
 $O/common/RandomChurn.o: common/RandomChurn.cc \
   common/InitStages.h \
   ../../inet/src/networklayer/contract/IPAddress.h \

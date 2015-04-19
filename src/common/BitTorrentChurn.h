@@ -48,7 +48,7 @@ protected:
     double distributionFunction();
     double exponentialDecayArrivalRate();
 
-private:
+protected:
     //function added by Manoj BTR-011 - 2015-02-14
     void createInitialNodes();
     GlobalStatistics* globalStatistics; //!< pointer to GlobalStatistics module in this node */
