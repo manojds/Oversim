@@ -125,6 +125,8 @@ void BitTorrentChurn::createNode()
 
     //TransportAddress* ta = pConfigurator->createBTNode(type);
 
+
+
     TransportAddress* ta = pConfigurator->createNode(type);
 
     delete ta;

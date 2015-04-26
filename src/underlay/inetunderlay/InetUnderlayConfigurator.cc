@@ -101,6 +101,8 @@ TransportAddress* InetUnderlayConfigurator::createNode(NodeType type, bool initi
     cModuleType* moduleType = cModuleType::get(type.terminalType.c_str());
     cModule* node = moduleType->create(nameStr.c_str(), getParentModule(),
                                        numCreated + 1, numCreated);
+    //TODO:: remove this . this is debug
+    std::cout<<"Creating node. Node ["<<nameStr<<"] count ["<<numCreated + 1<<"]"<<std::endl;
 
     if (type.channelTypesTx.size() > 0) {
         throw cRuntimeError("InetUnderlayConfigurator::createNode(): Setting "
