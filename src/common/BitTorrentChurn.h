@@ -45,6 +45,7 @@ protected:
     virtual void scheduleNodeCreations();
     void updateDisplayString();
     virtual void createNode();
+    void    createTracker();
     double distributionFunction();
     double exponentialDecayArrivalRate();
 

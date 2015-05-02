@@ -672,7 +672,7 @@ Define_NED_Math_Function(intuniform2, 4);
  * created the tracker and the Seeder
  */
 
-void InetUnderlayConfigurator::createTrackerAndSeeder()
+void InetUnderlayConfigurator::createTracker()
 {
 
 	//following code is adedd by Manoj fir BitTorrent

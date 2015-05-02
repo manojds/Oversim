@@ -70,7 +70,7 @@ public:
 	TransportAddress* createBTInitialNode(const char* type,bool initialize);
 	//function Added by Manoj - BTR-011 - 2015-02-14
 	TransportAddress* createBTNode(NodeType type, bool initialize=false);
-	void createTrackerAndSeeder();
+	void createTracker();
 
 private:
     // parameters

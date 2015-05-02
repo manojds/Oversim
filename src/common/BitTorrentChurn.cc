@@ -80,41 +80,50 @@ void BitTorrentChurn::scheduleNodeCreations()
 
 void BitTorrentChurn::handleMessage(cMessage* msg)
 {
-
-    if (!msg->isSelfMessage()) 
+    if (msg->isSelfMessage())
     {
-        delete msg;
-        return;
-    }
-
-	if(!b_TrackerCreated)
-	{
-		InetUnderlayConfigurator * pConfigurator=check_and_cast<InetUnderlayConfigurator*>(underlayConfigurator);
-		if(pConfigurator ==NULL)
-			opp_error("BitTorrentChurn::handleMessage - underlayConfigurator is not InetUnderlayConfigurator type.");
-
-		pConfigurator->createTrackerAndSeeder();
-		b_TrackerCreated=true;
-	}
-
-    if (terminalCount >= targetOverlayTerminalNum) 
-    {
-        initAddMoreTerminals = false;
-        underlayConfigurator->initFinished();
-        delete msg;
-        return;
-    } 
-    else
-    {
-        if (dynamic_cast<ChurnMessage*>(msg))
+        if ( msg->getKind() == 0)
         {
-            createNode();
+            if (dynamic_cast<ChurnMessage*>(msg) == 0)
+            {
+                opp_error("Unexpected msg type received for BitTorrentChurn");
+            }
+
+            if(!b_TrackerCreated)
+            {
+                createTracker();
+                b_TrackerCreated=true;
+            }
+
+            if (terminalCount >= targetOverlayTerminalNum)
+            {
+                initAddMoreTerminals = false;
+                underlayConfigurator->initFinished();
+                delete msg;
+                return;
+            }
+            else
+            {
+                createNode();
+            }
+
         }
         else
-            opp_error("Unexpected msg type");
+        {
+            opp_error("Unexpected msg type received for BitTorrentChurn");
+        }
     }
 
     delete msg;
+}
+
+void BitTorrentChurn::createTracker()
+{
+    InetUnderlayConfigurator * pConfigurator=check_and_cast<InetUnderlayConfigurator*>(underlayConfigurator);
+    if(pConfigurator ==NULL)
+        opp_error("BitTorrentChurn::handleMessage - underlayConfigurator is not InetUnderlayConfigurator type.");
+
+    pConfigurator->createTracker();
 }
 
 void BitTorrentChurn::createNode()
@@ -122,10 +131,6 @@ void BitTorrentChurn::createNode()
     InetUnderlayConfigurator * pConfigurator=check_and_cast<InetUnderlayConfigurator*>(underlayConfigurator);
     if(pConfigurator ==NULL)
         opp_error("BitTorrentChurn::handleMessage - underlayConfigurator is not InetUnderlayConfigurator type.");
-
-    //TransportAddress* ta = pConfigurator->createBTNode(type);
-
-
 
     TransportAddress* ta = pConfigurator->createNode(type);
 
@@ -155,7 +160,7 @@ void BitTorrentChurn::createInitialNodes()
     if(pConfigurator ==NULL)
         opp_error("BitTorrentChurn::handleMessage - underlayConfigurator is not InetUnderlayConfigurator type.");
 
-    pConfigurator->createTrackerAndSeeder();
+    pConfigurator->createTracker();
 
     //trackerAddress = pConfigurator->createBTNode("inet.applications.BitTorrent.Tracker",false);
     //pConfigurator->createBTNode("inet.applications.BitTorrent.BTHostSeeder",false);
