@@ -60,10 +60,7 @@ protected:
 
     bool initAddMoreTerminals;
     simtime_t lastCreate;
-    //Added by Manoj
-    //Made it staic such that it will persist over many Churn generators
-    //and hence only one tracker and BThostSeeder will get created.
-    static bool b_TrackerCreated;
+
 };
 
 
