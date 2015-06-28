@@ -81,7 +81,8 @@ void BTSPDScanner::scanAndAttack()
 
         if(pVulPoint->isVulnerable())
         {
-            if (pVulPoint->exploit() == false )
+            //TODO :: send the correct attack message
+            if (pVulPoint->exploit(NULL) == false )
                 continue;
         }
 
