@@ -27,6 +27,7 @@
 #include <ChurnGenerator.h>
 #include <GlobalStatistics.h>
 #include <math.h>
+#include <vector>
 
 /**
  * BitTorrent churn generator: actually schedules the arrival of peers
@@ -43,8 +44,11 @@ class BitTorrentChurn : public ChurnGenerator
 
 protected:
     virtual void scheduleNodeCreations();
+    virtual std::vector<simtime_t> getNodeStartTimes();
     void updateDisplayString();
-    virtual void createNode();
+    virtual void createNode(simtime_t startTime);
+    virtual void executeCreateNodeReq(simtime_t startTime);
+    virtual void startNode(cModule * mod);
     void    createTracker();
     double distributionFunction();
     double exponentialDecayArrivalRate();
@@ -59,6 +63,7 @@ protected:
     double bittorrentDistPar2; //!< distribution function parameter
 
     bool initAddMoreTerminals;
+    bool createAllAtBegining;
     simtime_t lastCreate;
 
 };

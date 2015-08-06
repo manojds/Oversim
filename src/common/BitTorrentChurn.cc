@@ -28,10 +28,14 @@
 #include <UnderlayConfigurator.h>
 #include <../underlay/inetunderlay/InetUnderlayConfigurator.h>
 #include <iostream>
+#include "../BitTorrent/BTPeerWireBase.h"
+#include <GlobalNodeList.h>
+#include <GlobalNodeListAccess.h>
 
 Define_Module(BitTorrentChurn);
 
 #define CREATE_TRACKER_MSG_TYPE     1
+#define START_NODE_MSG_TYPE         2
 
 void BitTorrentChurn::initializeChurn()
 {
@@ -39,6 +43,8 @@ void BitTorrentChurn::initializeChurn()
 
     initAddMoreTerminals = true;
     targetOverlayTerminalNum = par("targetOverlayTerminalNum");
+
+    createAllAtBegining = par("createAllNodesAtBegining");
 
     bittorrentDistName = std::string(
             par("bittorrentDistName").stdstringValue());
@@ -79,11 +85,41 @@ void BitTorrentChurn::initializeChurn()
 
 void BitTorrentChurn::scheduleNodeCreations()
 {
+//    for (int i = 0; i < targetOverlayTerminalNum; i++)
+//    {
+//        scheduleAt(simTime() + distributionFunction(),
+//                new ChurnMessage("CreateNode"));
+//    }
+
+    vector<simtime_t> vec = getNodeStartTimes();
+
+    for (unsigned int i = 0 ; i < vec.size() ; ++i)
+    {
+
+        if (createAllAtBegining)
+        {
+            createNode(vec[i]);
+        }
+        else
+        {
+            scheduleAt(vec[i], new ChurnMessage("CreateNode"));
+        }
+
+
+    }
+}
+
+std::vector<simtime_t> BitTorrentChurn::getNodeStartTimes()
+{
+    std::vector<simtime_t> vec(targetOverlayTerminalNum);
+
     for (int i = 0; i < targetOverlayTerminalNum; i++)
     {
-        scheduleAt(simTime() + distributionFunction(),
-                new ChurnMessage("CreateNode"));
+        vec[i] = simTime() + distributionFunction();
     }
+
+    return vec;
+
 }
 
 void BitTorrentChurn::handleMessage(cMessage* msg)
@@ -95,25 +131,21 @@ void BitTorrentChurn::handleMessage(cMessage* msg)
         {
             createTracker();
         }
-        else if ( msg->getKind() == 0)
+        else if (msg->getKind() == START_NODE_MSG_TYPE )
+        {
+            startNode((cModule*)msg->getContextPointer());
+
+        }
+
+        else if ( msg->getKind() == 0 )
         {
             if (dynamic_cast<ChurnMessage*>(msg) == 0)
             {
                 opp_error("Unexpected msg type received for BitTorrentChurn");
             }
 
-            if (terminalCount >= targetOverlayTerminalNum)
-            {
-                initAddMoreTerminals = false;
-                underlayConfigurator->initFinished();
-                delete msg;
-                return;
-            }
-            else
-            {
-                createNode();
-            }
 
+            createNode(simTime());
         }
         else
         {
@@ -138,7 +170,20 @@ void BitTorrentChurn::createTracker()
     pConfigurator->createTracker();
 }
 
-void BitTorrentChurn::createNode()
+void BitTorrentChurn::createNode(simtime_t startTime)
+{
+    if (terminalCount >= targetOverlayTerminalNum)
+    {
+        initAddMoreTerminals = false;
+        underlayConfigurator->initFinished();
+    }
+    else
+    {
+        executeCreateNodeReq(startTime);
+    }
+}
+
+void BitTorrentChurn::executeCreateNodeReq(simtime_t startTime)
 {
     InetUnderlayConfigurator * pConfigurator=check_and_cast<InetUnderlayConfigurator*>(underlayConfigurator);
     if(pConfigurator ==NULL)
@@ -163,6 +208,30 @@ void BitTorrentChurn::createNode()
         dGap));
 
     lastCreate = simTime();
+
+    GlobalNodeList* globalNodeList = GlobalNodeListAccess().get();
+
+    PeerInfo* pInfo = globalNodeList->getPeerInfo(*ta);
+
+
+    cModule * pMod = simulation.getModule(pInfo->getModuleID());
+
+    cMessage* pMsg = new cMessage("START_NODE_MSG_TYPE", START_NODE_MSG_TYPE);
+
+    pMsg->setContextPointer(pMod);
+
+    scheduleAt(startTime ,pMsg );
+
+
+
+}
+
+void BitTorrentChurn::startNode(cModule * _pMod)
+{
+    cModule * pSubMod = _pMod->getSubmodule("peerWire");
+    BTPeerWireBase* pPeerWire = check_and_cast<BTPeerWireBase*>(pSubMod);
+
+    pPeerWire->startNodeAt(simTime());
 }
 
 
@@ -199,7 +268,8 @@ void BitTorrentChurn::updateDisplayString()
     getDisplayString().setTagArg("t", 0, buf);
 }
 
-BitTorrentChurn::BitTorrentChurn()
+BitTorrentChurn::BitTorrentChurn():
+        createAllAtBegining(false)
 {
 }
 

@@ -24,7 +24,8 @@ class BitTorrentNoChurn : public BitTorrentChurn
 {
   protected:
 
-    void scheduleNodeCreations();
+//    void scheduleNodeCreations();
+    virtual std::vector<simtime_t> getNodeStartTimes();
 };
 
 #endif

@@ -39,5 +39,6 @@ simple BitTorrentChurn extends ChurnGenerator
         string tier1Type;    // the application on top of the overlay used in the simulation
         string tier2Type;    // the module type on top of tier 1
         string tier3Type;    // the module type on top of tier 2
+        bool createAllNodesAtBegining = default (false);
 }
 

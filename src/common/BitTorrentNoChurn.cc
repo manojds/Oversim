@@ -19,13 +19,25 @@
 
 Define_Module(BitTorrentNoChurn);
 
-void BitTorrentNoChurn::scheduleNodeCreations()
+//void BitTorrentNoChurn::scheduleNodeCreations()
+//{
+//    std::cout<<"BitTorrentNoChurn::scheduleNodeCreations - scheduling node creations..."<<std::endl;
+//
+//    for (int i = 0; i < targetOverlayTerminalNum; i++)
+//    {
+//        scheduleAt(simTime() ,new ChurnMessage("CreateNode"));
+//    }
+//}
+
+std::vector<simtime_t> BitTorrentNoChurn::getNodeStartTimes()
 {
-    std::cout<<"BitTorrentNoChurn::scheduleNodeCreations - scheduling node creations..."<<std::endl;
+    std::vector<simtime_t> vec(targetOverlayTerminalNum);
 
     for (int i = 0; i < targetOverlayTerminalNum; i++)
     {
-        scheduleAt(simTime() ,new ChurnMessage("CreateNode"));
+        vec[i] = simTime() ;
     }
+
+    return vec;
 }
 
