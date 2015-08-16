@@ -34,8 +34,9 @@
 
 Define_Module(BitTorrentChurn);
 
-#define CREATE_TRACKER_MSG_TYPE     1
-#define START_NODE_MSG_TYPE         2
+#define CREATE_TRACKER_MSG_TYPE         1
+#define START_NODE_MSG_TYPE             2
+#define START_NODE_CREATION_MSG_TYPE    3
 
 void BitTorrentChurn::initializeChurn()
 {
@@ -73,6 +74,7 @@ void BitTorrentChurn::initializeChurn()
     terminalCount = 0;
 
     //function added by Manoj BTR-011 - 2015-05-02
+    //schedule a message to create the tracker
     if( idx == 0)
     {
         scheduleAt(simTime() ,
@@ -80,7 +82,12 @@ void BitTorrentChurn::initializeChurn()
                         CREATE_TRACKER_MSG_TYPE) );
     }
 
-    scheduleNodeCreations();
+    //schedule a message to create nodes
+    scheduleAt(simTime() ,
+            new cMessage("START_NODE_CREATION_MSG_TYPE",
+                    START_NODE_CREATION_MSG_TYPE) );
+
+
 }
 
 void BitTorrentChurn::scheduleNodeCreations()
@@ -136,6 +143,10 @@ void BitTorrentChurn::handleMessage(cMessage* msg)
             startNode((cModule*)msg->getContextPointer());
 
         }
+        else if (msg->getKind() == START_NODE_CREATION_MSG_TYPE)
+        {
+            scheduleNodeCreations();
+        }
 
         else if ( msg->getKind() == 0 )
         {
@@ -145,7 +156,7 @@ void BitTorrentChurn::handleMessage(cMessage* msg)
             }
 
 
-            createNode(simTime());
+             (simTime());
         }
         else
         {
