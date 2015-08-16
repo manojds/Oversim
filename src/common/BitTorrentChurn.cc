@@ -156,7 +156,7 @@ void BitTorrentChurn::handleMessage(cMessage* msg)
             }
 
 
-             (simTime());
+            createNode(simTime());
         }
         else
         {
