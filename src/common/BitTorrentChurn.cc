@@ -62,7 +62,7 @@ void BitTorrentChurn::initializeChurn()
                 "bittorrentDistPar1 > 0");
     }
 
-    if (bittorrentDistPar2 <= 0) {
+    if (bittorrentDistPar2 <= 0 && targetOverlayTerminalNum != 0) {
         opp_error("BitTorrentChurn currently only works with "
                 "bittorrentDistPar2 > 0 ");
     }
@@ -97,6 +97,13 @@ void BitTorrentChurn::scheduleNodeCreations()
 //        scheduleAt(simTime() + distributionFunction(),
 //                new ChurnMessage("CreateNode"));
 //    }
+
+    if (targetOverlayTerminalNum == 0 )
+    {
+        initAddMoreTerminals = false;
+        underlayConfigurator->initFinished();
+        return;
+    }
 
     vector<simtime_t> vec = getNodeStartTimes();
 
