@@ -674,38 +674,7 @@ Define_NED_Math_Function(intuniform2, 4);
 
 void InetUnderlayConfigurator::createTracker()
 {
-
-	//following code is adedd by Manoj fir BitTorrent
-
-//    NodeType trackerNT;
-//    //we take the type ID as one. So always number of terminals from first churn generator will be specified amount -1.
-//    trackerNT.typeID=1;
-//    trackerNT.context=NULL;
-//    trackerNT.terminalType="inet.applications.BitTorrent.Tracker";
-
     trackerAddress=createBTInitialNode("inet.applications.BitTorrent.Tracker", false);
-    //Removed by Manoj - BTR-012 - 2015-03-01
-    //createBTInitialNode("inet.applications.BitTorrent.BTHostSeeder",false);
-
-    //Following code commented by Manoj. Following checks are not needed now - BTR-011 - 2015-02-14
-
-//	const char* hostType = getParentModule()->par("overlayTerminalType");
-//
-//	EV<<"***************** InetUnderlayConfigurator::initializeUnderlay - Host type is ["<< hostType<<"]\n";
-//
-//	//
-//
-//	if (!strcmp(hostType,"BTHost"))
-//	{
-//		EV<<"***************** InetUnderlayConfigurator::initializeUnderlay - Creating BT Host\n";
-//		trackerAddress = createBTNode("inet.applications.BitTorrent.Tracker",false);
-//		createBTNode("inet.applications.BitTorrent.BTHostSeeder",false);
-//	}
-//	else
-//	{
-//		EV<<"***************** InetUnderlayConfigurator::initializeUnderlay - Module type is not BT Host. type is ["<<
-//			getModuleType()->getFullName()<<"] Parent Moduletype ["<< getParentModule()->getModuleType()->getFullName()<<"] \n";
-//	}
 }
 
 ////function Added by Manoj - BTR-011 - 2015-02-14
@@ -762,14 +731,6 @@ TransportAddress* InetUnderlayConfigurator::createBTInitialNode(const char* type
     cModuleType* moduleType = cModuleType::get(type);
     cModule*  node = moduleType->create(buf, getParentModule());
     
-    
-    //Code Added by Manoj
-    //if (type.channelTypesTx.size() > 0) {
-    //    throw cRuntimeError("InetUnderlayConfigurator::createNode(): Setting "
-    //                "channel types via the churn generator is not allowed "
-    //                "with the InetUnderlay. Use **.accessNet.channelTypes instead!");
-    //} 
-    //end of the added code by Manoj    
 
 	//edited by Manoj
     //sprintf(buf, type);
@@ -843,35 +804,6 @@ TransportAddress* InetUnderlayConfigurator::createBTInitialNode(const char* type
 	{//this is BTHostSeeder then
 
 	    throw cRuntimeError("InetUnderlayConfigurator::createBTInitialNode - Unknown node type [%s] specified",type);
-
-	    //Removed by Manoj - BTR-012 - 2015-03-01
-//		//Get the address of the new node
-//		IPvXAddress localAddress = IPAddressResolver().addressOf(node);
-//
-//		IPvXAddress trackerAddr = trackerAddress->getIp();
-//		std::string addrString;
-//		if (!trackerAddr.isIPv6())
-//			addrString = trackerAddr.get4().str();
-//		else
-//			addrString = trackerAddr.get6().str();
-//
-//		EV<<"************** InetUnderlayConfigurator::createBTNode - Creating BTHostSeeder, Setting Address and Port parameters **********\n";
-//		EV<<"************** Trcker Addr["<<addrString.c_str()<<"] Port ["<< trackerAddress->getPort()<<"]";
-//
-//
-//		node->getSubmodule("trackerClient")->par("connectAddress") = addrString.c_str();
-//		node->getSubmodule("trackerClient")->par("connectPort") = trackerAddress->getPort();
-
-	
-//		if (!localAddress.isIPv6())
-//			addrString = localAddress.get4().str();
-//		else
-//			addrString = localAddress.get6().str();
-//
-//
-//		node->getSubmodule("trackerClient")->par("address") = addrString.c_str();
-//		node->getSubmodule("trackerClient")->par("port") = address->getPort();
-
 		
 	}
 
